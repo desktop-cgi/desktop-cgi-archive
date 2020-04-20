@@ -1,0 +1,46 @@
+{
+  "name": "desktop-cgi",
+  "version": "1.0.0",
+  "description": "create desktop application using cgi files, cgi apps served with most common embedded servers, or any proxy web servers using electron and express server that runs on any OS supported by Electron",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ganeshkbhat/desktop-cgi.git"
+  },
+  "keywords": [
+    "desktop",
+    "application",
+    "cgi",
+    "files",
+    "php",
+    "python",
+    "ruby",
+    "perl",
+    "jsp",
+    "asp",
+    "aspx",
+    "web",
+    "applications",
+    "web",
+    "based",
+    "desktop",
+    "apps",
+    "cgi",
+    "server",
+    "proxy",
+    "web",
+    "server"
+  ],
+  "author": "Ganesh B",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ganeshkbhat/desktop-cgi/issues"
+  },
+  "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme"
+}
