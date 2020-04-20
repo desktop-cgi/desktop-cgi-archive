@@ -42,5 +42,13 @@
   "bugs": {
     "url": "https://github.com/ganeshkbhat/desktop-cgi/issues"
   },
-  "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme"
+  "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme",
+  "dependencies": {
+    "electron": "^8.2.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "sinon": "^9.0.2"
+  }
 }
