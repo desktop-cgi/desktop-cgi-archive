@@ -1,0 +1,9 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 3001
+    },
+    "session": {
+        "secret": "1234567890"
+    }
+}
