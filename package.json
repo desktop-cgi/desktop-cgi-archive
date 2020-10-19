@@ -44,7 +44,9 @@
   },
   "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme",
   "dependencies": {
-    "electron": "^8.2.3"
+    "cgijs": "^1.0.0-beta-01",
+    "electron": "^8.2.3",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
