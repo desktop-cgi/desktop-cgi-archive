@@ -1,0 +1,6 @@
+- Add Webcontent loading to electronjs
+    - https://www.electronjs.org/docs/api/web-contents
+- Automate Packager with scripts .bat and .sh
+    - https://www.electronjs.org/docs/tutorial/application-distribution
+- Set App Paths customization to docs
+    - https://www.electronjs.org/docs/all#appsetpathname-path

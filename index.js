@@ -33,7 +33,10 @@ async function createWindow() {
     });
 
     // Debug Line to allow opening dev tools from electron
-    //win.webContents.openDevTools();
+    // win.webContents.openDevTools();
+
+    // Web Content Loading
+    // https://www.electronjs.org/docs/api/web-contents
 
     win.on('closed', function () {
         win = null;
