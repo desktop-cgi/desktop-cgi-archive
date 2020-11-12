@@ -106,11 +106,11 @@ dist
 dist/*
 
 tmp/*
-data/app/*
-data/crash/*
-data/data/*
-data/logs/*
-data/recent/*
-data/user/*
+data/app/
+data/crash/
+data/data/
+data/logs/
+data/recent/
+data/user/
 
 
