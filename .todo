@@ -3,5 +3,6 @@
 - Automate Packager with scripts .bat and .sh
     - https://www.electronjs.org/docs/tutorial/application-distribution
     - https://github.com/electron-userland/electron-builder
+- Add Docker based build support for app (www, data, download, tmp, config.json)
 - Set App Paths customization to docs
     - https://www.electronjs.org/docs/all#appsetpathname-path
