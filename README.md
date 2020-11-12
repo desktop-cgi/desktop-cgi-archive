@@ -54,7 +54,7 @@ Desktop-CGI is a desktop executable app that is created using electron, nodejs e
 * Any app using local / remote proxy
 
 
-##### The script currently allows embedding following servers for proxy:
+##### The script currently allows embedding following servers for proxy [TODO: In Development]:
 
 * Apache HTTPD (Allows Embed & Proxy)
 * Apache TomCat (Allows Embed & Proxy)
