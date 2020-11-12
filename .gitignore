@@ -106,4 +106,4 @@ dist
 dist/*
 
 tmp/*
-data/*
+data/*/*
