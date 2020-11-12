@@ -78,7 +78,7 @@ The script an proxy to any server even IIS (Allows Proxy) , Other embedded serve
 
 ##### Usage Demo:
 
-    - Check `index.js` and `server` folder
+Check `index.js` and `server` folder for demo code
 
 
 # Technical Specifications
