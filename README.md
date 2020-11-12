@@ -96,7 +96,7 @@ Check `index.js` and `server` folder for demo code
 
 # Todo
 
-    Check file - .todo
+Check file - [.todo]('./.todo)
 
 
 # References
