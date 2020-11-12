@@ -38,7 +38,7 @@ Desktop-CGI is a desktop executable app that is created using electron, nodejs e
     - Express Recommended (used for demo)
 
 
-##### The script will pipe all files based on language:
+##### The script will pipe all interpreted language files below:
 
 * Python (2.x, 3.x)
 * Perl (Version Independent)
