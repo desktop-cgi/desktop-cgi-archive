@@ -18,7 +18,7 @@ Desktop-CGI is a desktop executable app that is created using electron, nodejs e
 * Add your application in the respective `www` folder
 * Check and modify `config.json` file for your application's configuration needs
 * Check if your electron app runs using command `npm run electron`
-* Run command `npm run electron-build`
+* Run command `npm run electronbuild`
 
 
 # Functionality Details
