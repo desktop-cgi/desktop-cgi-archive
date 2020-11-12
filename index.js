@@ -50,17 +50,15 @@ async function createWindow() {
     })
 }
 
-app.setPath('temp', 'E:/workspace/desktop-cgi/tmp')
-app.setPath('cache', 'E:/workspace/desktop-cgi/data/cache')
-app.setPath('downloads', 'E:/workspace/desktop-cgi/downloads')
-app.setPath('userData', 'E:/workspace/desktop-cgi/data/user')
-app.setPath('logs', 'E:/workspace/desktop-cgi/data/logs')
-app.setPath('recent', 'E:/workspace/desktop-cgi/data/recent')
-// TODO: Getting absolute path error
-// app.setPath('crashDump', 'E:/workspace/desktop-cgi/data/crash')
-
-// Specify common AppData
-app.setPath('appData', 'E:/workspace/desktop-cgi/data/app')
+app.setPath('temp', config.app.temp)
+app.setPath('cache', config.app.cache)
+app.setPath('downloads', config.app.downloads)
+app.setPath('userData', config.app.userData)
+app.setPath('logs', config.app.logs)
+app.setPath('recent', config.app.recent)
+// Failed to set path error
+// app.setPath('crashDump', config.app.crashDump)
+app.setPath('appData', config.app.appData)
 
 // Alternatively, use following AppData path based on OS
 // aix, darwin, freebsd, linux, openbsd, sunos, win32

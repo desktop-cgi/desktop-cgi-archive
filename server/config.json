@@ -5,5 +5,15 @@
     },
     "session": {
         "secret": "1234567890"
+    },
+    "app": {
+        "temp": "E:/workspace/desktop-cgi/tmp",
+        "cache": "E:/workspace/desktop-cgi/data/cache",
+        "downloads": "E:/workspace/desktop-cgi/downloads",
+        "userData": "E:/workspace/desktop-cgi/data/user",
+        "logs": "E:/workspace/desktop-cgi/data/logs",
+        "recent": "E:/workspace/desktop-cgi/data/recent",
+        "crashDump": "E:/workspace/desktop-cgi/data/crash",
+        "appData": "E:/workspace/desktop-cgi/data/app"
     }
 }
