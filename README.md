@@ -1,30 +1,39 @@
 # desktop-cgi
-Desktop-CGI is a desktop executable app that is created using electron, nodejs express based server that serves - CGI files, embedded webserver served CGI apps (PHP, Ruby, Python, Perl, JSP, ASPX, Other Interpreted Languages), or remote proxy webserver apps (any) 
-
-
-# Installation
-
+Desktop-CGI is a desktop executable app that is created using electron, nodejs express based server that serves - CGI files (PHP, Ruby, Python, Perl, Other Interpreted Languages), CGI / Interpreted language apps through embedded webservers (PHP, Ruby, Python, Perl, JSP, ASPX, Other Interpreted Languages), or remote proxy webserver apps (any) 
 
 
 # Features
 
-    Electron based express application that runs Node - Express based application that runs CGI files or CGI web apps that can be served from a embedded web server or proxy web server
+    Electron based express application that runs Node - Express based application that runs CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server
 
+
+# Usage
+
+    - Install node.js from [https://www.nodejs.com](https://www.nodejs.com)
+    - Clone the Git repository (Alternatively, download the git repository)
+    - Open shell and `cd` (change directory) to the git repository folder
+    - Run command `npm install`
+    - Add your application in the respective `www` folder
+    - Check and modify `config.json` file for your application's configuration needs
+    - Check if your electron app runs using command `npm run electron`
+    - Run command `npm run electron-build`
+
+
+# Functionality Details
 
 ##### Electron based Desktop application that runs CGI Server
 
-* Run any scripts that support cgi based serving
-* Run any host that servers a web app using proxy 
+* Run any script files that support CGI based file script serving
+* Run any host that serves a web app using proxy 
     - In App / Local / Remote proxy support
-    - Allows embedding servers, which can be
+* Allows embedding servers to server apps behind a CGIJS proxy server
 * Allows
     - running multiple interpreters in one app
     - running multiple proxies in one app
     - multiple embedded servers in one app
 * Nodejs framework independent / agnostic for app development
+    - Express Recommended (used for demo)
 
-
-# Functionality Details
 
 ##### The script will pipe all files based on language:
 
@@ -32,25 +41,24 @@ Desktop-CGI is a desktop executable app that is created using electron, nodejs e
 * Perl (Version Independent)
 * PHP (Version Independent)
 * Ruby (Version Independent)
-* JSP (Version Independent)
-* ASP / ASPX (Version Independent)
+<!-- * JSP (Version Independent) -->
 
 
 ##### The script will pipe all proxies of above languages and following:
 
-* Jsp (With Tomcat)
-* Aspx (With IIS, Apache)
+* Jsp (With Tomcat embedded)
+* Aspx (Version Independent - With local IIS proxy, Apache embedded)
+* Any app using local / remote proxy
 
 
-##### The script currently allows proxying to following servers:
+##### The script currently allows embedding following servers for proxy:
 
 * Apache HTTPD (Allows Embed & Proxy)
 * Apache TomCat (Allows Embed & Proxy)
 * Nginx (Allows Embed & Proxy)
 * Mongoose (Allows Embed & Proxy)
-* IIS (Allows Proxy)
-* Other Proxy-able local/remote servers
-* Other embedded servers proxies
+
+The script an proxy to any server even IIS (Allows Proxy) , Other embedded servers or Proxy-able local/remote servers
 
 
 ##### Note:
@@ -62,17 +70,12 @@ Desktop-CGI is a desktop executable app that is created using electron, nodejs e
     - Nodejs: (> 8.x)
 
 * Application Dependencies:
-    - cgi-js: (>1.0.0)
+    - cgi-js: (>=1.0.0)
 
 
 ##### Usage Demo:
 
-
-```javascript
-
-
-
-```
+    - Check `index.js` and `server` folder
 
 
 # Technical Specifications
