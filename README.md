@@ -103,7 +103,7 @@ The script an proxy to any server even IIS (Allows Proxy) , Other embedded serve
 
 ##### Other Packing Solutions you can use
 
-- References: [Application Distrubution](https://www.electronjs.org/docs/tutorial/application-distribution)
+- References: [Electron Application Distrubution](https://www.electronjs.org/docs/tutorial/application-distribution)
 - [electron-forge](https://github.com/electron-userland/electron-forge): `npm install -g @electron-forge/cli`
 - [electron-builder](https://github.com/electron-userland/electron-builder): `npm install -g electron-builder`
 
