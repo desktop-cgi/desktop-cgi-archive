@@ -26,11 +26,11 @@ module.exports = () => {
             let sport = 9090, shost = '127.0.0.1';
 
             // PHP File: Use bin as string
-            app.use("/php", cgi.serve('php', { web_root_folder: php, bin: '/usr/bin/', config_path: '', host: shost, port: sport, cmd_options: {} }));
+            app.use("/php", cgi.serve('php', { web_root_folder: php, bin: 'F:/languages/php', config_path: '', host: shost, port: sport, cmd_options: {} }));
             // PHP File: Use bin as object definition
-            app.use("/phpud", cgi.serve('php', { web_root_folder: php, bin: { bin_path: '', useDefault: true }, config_path: '', host: shost, port: sport, cmd_options: {} }));
+            app.use("/phpud", cgi.serve('php', { web_root_folder: php, bin: { bin_path: 'F:/languages/php', useDefault: true }, config_path: '', host: shost, port: sport, cmd_options: {} }));
             // PHP File: Use bin as Object definition with useDefault false
-            app.use("/phpnud", cgi.serve('php', { web_root_folder: php, bin: { bin_path: '/usr/bin/', useDefault: false }, config_path: '', host: shost, port: sport, cmd_options: {} }));
+            app.use("/phpnud", cgi.serve('php', { web_root_folder: php, bin: { bin_path: 'F:/languages/php', useDefault: false }, config_path: '', host: shost, port: sport, cmd_options: {} }));
 
             // RB File
             app.use("/rb", cgi.serve('rb', { web_root_folder: rby, bin: '/usr/bin/', config_path: '', host: shost, port: sport, cmd_options: {} }));

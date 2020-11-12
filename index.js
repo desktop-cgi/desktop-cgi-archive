@@ -1,12 +1,13 @@
 const { app, BrowserWindow, remote } = require('electron');
 // const {getCurrentWindow, globalShortcut} = remote;
 const electron = require('electron');
+var path = require("path");
 
 electron.app.allowRendererProcessReuse = true;
 global.appRoot = process.cwd();
 
 const fs = require('fs');
-let config = JSON.parse(fs.readFileSync('config.json'));
+let config = JSON.parse(fs.readFileSync(path.resolve('./server/config.json')));
 
 let win;
 let proxyapp = {};
@@ -49,16 +50,17 @@ async function createWindow() {
     })
 }
 
-app.setPath('temp', './tmp')
-app.setPath('cache', './cache')
-app.setPath('downloads', './downloads')
-app.setPath('userData', './data/user')
-app.setPath('logs', './data/logs')
-app.setPath('crashDump', './data/crash')
-app.setPath('recent', './data/recent')
+app.setPath('temp', 'E:/workspace/desktop-cgi/tmp')
+app.setPath('cache', 'E:/workspace/desktop-cgi/data/cache')
+app.setPath('downloads', 'E:/workspace/desktop-cgi/downloads')
+app.setPath('userData', 'E:/workspace/desktop-cgi/data/user')
+app.setPath('logs', 'E:/workspace/desktop-cgi/data/logs')
+app.setPath('recent', 'E:/workspace/desktop-cgi/data/recent')
+// TODO: Getting absolute path error
+// app.setPath('crashDump', 'E:/workspace/desktop-cgi/data/crash')
 
 // Specify common AppData
-app.setPath('appData', './data/app')
+app.setPath('appData', 'E:/workspace/desktop-cgi/data/app')
 
 // Alternatively, use following AppData path based on OS
 // aix, darwin, freebsd, linux, openbsd, sunos, win32
