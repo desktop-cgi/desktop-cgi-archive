@@ -15,5 +15,15 @@
         "recent": "E:/workspace/desktop-cgi/data/recent",
         "crashDump": "E:/workspace/desktop-cgi/data/crash",
         "appData": "E:/workspace/desktop-cgi/data/app"
+    },
+    "proxies": {
+        "instancename": {
+            "option-key": "option-value"
+        }
+    },
+    "cgifiles": {
+        "instancename": {
+            "option-key": "option-value"
+        }
     }
 }

@@ -13,7 +13,7 @@ module.exports = () => {
             // Load The Path Module
             const path = require('path');
             var cgijs = require("cgijs");
-            const srv = require("./cgiproxyserver");
+            const srv = require("./server");
 
             var cgi = cgijs.init();
 

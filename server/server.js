@@ -66,7 +66,5 @@ module.exports = () => {
 }
 
 
-
-
 // // Run flask application
 // FLASK_APP=./www/py/main.py FLASK_ENV=development flask run
