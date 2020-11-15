@@ -10,19 +10,18 @@ const fs = require('fs');
 let config = JSON.parse(fs.readFileSync(path.resolve('./server/config.json')));
 
 let win;
-let proxyapp = {};
-let sampleapp = {};
+let apps = {};
+
 async function createWindow() {
     const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
 
     require('./server/index')().then(function (apps) {
-        console.log("apps", apps)
-        sampleapp = apps.sampleapp;
-        proxyapp = apps.proxyapp;
+        // console.log("apps", apps)
+        apps = apps;
 
         win.loadURL('http://localhost:' + config.server.port);
         require('./server/native/menu');
-    }.bind(proxyapp, sampleapp), (err) => {
+    }.bind(apps), (err) => {
         console.log('Error Starting Server', err);
     });
 
@@ -41,13 +40,12 @@ async function createWindow() {
 
     win.on('closed', function () {
         win = null;
-        proxyapp = {};
-        sampleapp = {};
-    }.bind(proxyapp, sampleapp));
+        apps = {};
+    }.bind(apps));
 
     win.once('ready-to-show', () => {
         win.show();
-    })
+    });
 }
 
 app.setPath('temp', config.app.temp)
@@ -71,17 +69,16 @@ app.setPath('appData', config.app.appData)
 //     app.setPath('appData', '~/Library/Application Support')
 // }
 
-app.on('ready', createWindow.bind(proxyapp, sampleapp));
+app.on('ready', createWindow.bind(apps));
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit();
-        proxyapp = {};
-        sampleapp = {};
+        apps = {};
     }
-}.bind(proxyapp, sampleapp))
+}.bind(apps))
 
 app.on('activate', function () {
     if (win === null) {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
     }
-}.bind(proxyapp, sampleapp));
+}.bind(apps));

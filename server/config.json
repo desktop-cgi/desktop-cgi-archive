@@ -17,13 +17,18 @@
         "appData": "E:/workspace/desktop-cgi/data/app"
     },
     "proxies": {
-        "instancename": {
-            "option-key": "option-value"
-        }
+        
     },
     "cgifiles": {
-        "instancename": {
-            "option-key": "option-value"
+        "phpappone": {
+            "path": "/php",
+            "lang_type": "php",
+            "web_root_folder": "E:/workspace/desktop-cgi/www/php",
+            "bin": "F:/languages/php",
+            "config_path": "",
+            "host": "127.0.0.1",
+            "port": "3001",
+            "cmd_options": {}
         }
     }
 }
