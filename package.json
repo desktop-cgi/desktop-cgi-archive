@@ -47,13 +47,15 @@
   "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme",
   "dependencies": {
     "cgijs": "1.0.0-beta-01",
-    "electron": "^10.1.5",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1"
+    "electron": "10.1.5",
+    "express": "4.17.1",
+    "express-session": "1.17.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "sinon": "^9.2.1"
+    "chai": "4.2.0",
+    "eslint": "7.13.0",
+    "mocha": "8.2.1",
+    "supertest": "6.0.1",
+    "sinon": "9.2.1"
   }
 }
