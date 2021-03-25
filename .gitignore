@@ -130,6 +130,7 @@ binaries/server-mongoose/src/*
 # data/data/*
 # data/logs/*
 # data/recent/*
-# data/user/*
+data/user/*
+
 
 
