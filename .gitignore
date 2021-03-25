@@ -106,29 +106,30 @@ dist
 dist/*
 
 www/*/__pycache__/
-binaries/db-mysql/src/*
-binaries/db-mongo/src/*
-binaries/db-redis/src/*
-binaries/lang-java/src/*
-binaries/lang-net/src/*
-binaries/lang-perl/src/*
-binaries/lang-php/src/*
-binaries/lang-python/src/*
-binaries/lang-python3/src/*
-binaries/lang-ruby/src/*
-binaries/server-httpd/src/*
+# binaries/db-mysql/src/*
+# binaries/db-mongo/src/*
+# binaries/db-redis/src/*
+# binaries/lang-java/src/*
+# binaries/lang-net/src/*
+# binaries/lang-perl/src/*
+# binaries/lang-php/src/*
+# binaries/lang-python/src/*
+# binaries/lang-python3/src/*
+# binaries/lang-ruby/src/*
+# binaries/server-httpd/src/*
 binaries/server-mongoose/src/*
-binaries/server-nginx/src/*
-binaries/server-putty/src/*
-binaries/server-tomcat/src/*
+# binaries/server-nginx/src/*
+# binaries/server-putty/src/*
+# binaries/server-tomcat/src/*
 */*/__pycache__/
 
-tmp/*
-data/app/*
-data/crash/*
-data/data/*
-data/logs/*
-data/recent/*
-data/user/*
+# tmp/*
+# cache/*
+# data/app/*
+# data/crash/*
+# data/data/*
+# data/logs/*
+# data/recent/*
+# data/user/*
 
 
