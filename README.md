@@ -1,5 +1,5 @@
 # desktop-cgi
-Desktop-CGI is a desktop executable app.  Electron based express application that runs and Electron - Node - Express based application running any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server
+Desktop-CGI is a desktop executable app.  Electron based express application that runs an Electron - Node - Express based application under the hood running any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server
 
 
 ![Desktop CGI](./desktop-cgi.jpeg)
