@@ -8,7 +8,7 @@ Desktop-CGI is a desktop executable app that can be created from any CGI files o
 # Highlights
 
 
-Desktop-CGI is created using electron, nodejs express based server that serves - CGI files (PHP, Ruby, Python, Perl, Other Interpreted Languages), CGI / Interpreted language apps through embedded webservers (PHP, Ruby, Python, Perl, JSP, ASPX, Other Interpreted Languages), or remote proxy webserver apps (any) 
+Desktop-CGI can serve any CGI files or CGI / Interpreted language apps like PHP, Ruby, Python, Perl, JSP, ASPX, Other Interpreted Languages through embedded webservers , or any remote proxy webserver apps 
 
 
 Desktop-CGI runs an Electron - Node - Express based application under the hood and supports major Operating systems like Windows, Linux, Mac or any operating systems supported by Electron.
@@ -33,16 +33,17 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 
 ##### Electron based Desktop application that runs CGI Server
 
-* Run any script files that support CGI based file script serving
-* Run any host that serves a web app using proxy 
+* Run any script files that supports CGI based file script serving using `cgijs` file module
+* Run any host that serves a web app using `cgijs` proxy 
     - In App / Local / Remote proxy support
-* Allows embedding servers to server apps behind a CGIJS proxy server
+* Allows embedding servers like httpd, nginx, etc to serve web applications
 * Allows
     - running multiple interpreters in one app
     - running multiple proxies in one app
     - multiple embedded servers in one app
-* Nodejs framework independent / agnostic for app development
-    - Express Recommended (used for demo)
+* Allows 
+* `cgijs` is Nodejs framework independent / agnostic for serving CGI or interpreted scripting apps via files, or server based web apps via proxies
+    - Express Recommended and used for demo
 
 
 ##### The script will pipe all interpreted language files below:
@@ -61,14 +62,14 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 * Any app using local / remote proxy
 
 
-##### The script currently allows embedding following servers for proxy [TODO: In Development]:
+##### The script should currently allow embedding following servers for proxy [TODO: In Development]:
 
 * Apache HTTPD (Allows Embed & Proxy)
 * Apache TomCat (Allows Embed & Proxy)
 * Nginx (Allows Embed & Proxy)
 * Mongoose (Allows Embed & Proxy)
 
-The script an proxy to any server even IIS (Allows Proxy) , Other embedded servers or Proxy-able local/remote servers
+The script can proxy to any File or most embeddable servers or Proxy-able local/remote servers; even IIS (Allows Proxy)
 
 
 ##### Note:
