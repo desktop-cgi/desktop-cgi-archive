@@ -36,7 +36,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 * Run any script files that supports CGI based file script serving - using `cgijs` file module
 * Run any host that serves a web app - using `cgijs` proxy 
     - In App / Local / Remote proxy support
-* Allows embedding servers like httpd, nginx, etc to serve web applications - using process module
+* Allows embedding servers like httpd, nginx, etc to serve web applications - using `cgijs` process module
 * Allows
     - running multiple interpreters in one app
     - running multiple proxies in one app
