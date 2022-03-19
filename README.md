@@ -46,7 +46,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
     - Express Recommended and used for demo
 
 
-##### The script will pipe all interpreted language files below:
+##### The script should pipe all interpreted language files below:
 
 * Python (2.x, 3.x)
 * Perl (Version Independent)
@@ -55,7 +55,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 <!-- * JSP (Version Independent) -->
 
 
-##### The script will pipe all proxies of above languages and following:
+##### The script will pipe all proxies of above languages and following (to be tested):
 
 * Jsp (With Tomcat embedded)
 * Aspx (Version Independent - With local IIS proxy, Apache embedded)
@@ -67,9 +67,9 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 * Apache HTTPD (Allows Embed & Proxy)
 * Apache TomCat (Allows Embed & Proxy)
 * Nginx (Allows Embed & Proxy)
-* Mongoose (Allows Embed & Proxy)
+* Mongoose http server (Allows Embed & Proxy)
 
-The script can proxy to any File or most embeddable servers or Proxy-able local/remote servers; even IIS (Allows Proxy)
+The script can proxy to any File, most embeddable web servers, and/ or Proxy-able local / remote servers; even IIS Server (Allows Proxy)
 
 
 ##### Note:
