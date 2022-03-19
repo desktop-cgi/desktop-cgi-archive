@@ -7,14 +7,14 @@
         "secret": "1234567890"
     },
     "app": {
-        "temp": "E:/workspace/desktop-cgi/tmp",
-        "cache": "E:/workspace/desktop-cgi/data/cache",
-        "downloads": "E:/workspace/desktop-cgi/downloads",
-        "userData": "E:/workspace/desktop-cgi/data/user",
-        "logs": "E:/workspace/desktop-cgi/data/logs",
-        "recent": "E:/workspace/desktop-cgi/data/recent",
-        "crashDump": "E:/workspace/desktop-cgi/data/crash",
-        "appData": "E:/workspace/desktop-cgi/data/app"
+        "temp": "/tmp",
+        "cache": "/data/cache",
+        "downloads": "/downloads",
+        "userData": "/data/user",
+        "logs": "/data/logs",
+        "recent": "/data/recent",
+        "crashDump": "/data/crash",
+        "appData": "/data/app"
     },
     "proxies": {
         
@@ -23,8 +23,8 @@
         "phpappone": {
             "path": "/php",
             "lang_type": "php",
-            "web_root_folder": "E:/workspace/desktop-cgi/www/php",
-            "bin": "F:/languages/php",
+            "web_root_folder": "/www/php",
+            "bin": "",
             "config_path": "",
             "host": "127.0.0.1",
             "port": "3001",

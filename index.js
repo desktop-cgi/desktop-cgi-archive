@@ -14,7 +14,7 @@ let apps = {};
 
 async function createWindow() {
     const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
-
+    
     require('./server/index')().then(function (apps) {
         // console.log("apps", apps)
         apps = apps;
@@ -48,15 +48,15 @@ async function createWindow() {
     });
 }
 
-app.setPath('temp', config.app.temp)
-app.setPath('cache', config.app.cache)
-app.setPath('downloads', config.app.downloads)
-app.setPath('userData', config.app.userData)
-app.setPath('logs', config.app.logs)
-app.setPath('recent', config.app.recent)
+app.setPath('temp', process.cwd() + config.app.temp)
+app.setPath('cache', process.cwd() + config.app.cache)
+app.setPath('downloads', process.cwd() + config.app.downloads)
+app.setPath('userData', process.cwd() + config.app.userData)
+app.setPath('logs', process.cwd() + config.app.logs)
+app.setPath('recent', process.cwd() + config.app.recent)
 // Failed to set path error
 // app.setPath('crashDump', config.app.crashDump)
-app.setPath('appData', config.app.appData)
+app.setPath('appData', process.cwd() + config.app.appData)
 
 // Alternatively, use following AppData path based on OS
 // aix, darwin, freebsd, linux, openbsd, sunos, win32

@@ -13,7 +13,7 @@ module.exports = () => {
             let conf = fs.readFileSync('./server/config.json');
             let configuration = JSON.parse(conf);
             let cgifiles = Object.keys(configuration.cgifiles);
-
+            
             // TODO:
             //      Check functionality with running proxy
             //      Write Tests
@@ -23,9 +23,9 @@ module.exports = () => {
                     inst.path,
                     cgi.serve(
                         inst.lang_type, {
-                            web_root_folder: inst.web_root_folder, 
+                            web_root_folder: path.join(process.cwd(), inst.web_root_folder), 
                             bin: inst.bin, 
-                            config_path: inst.config_path, 
+                            config_path: path.join(process.cwd(), inst.config_path), 
                             host: inst.host, 
                             port: inst.port, 
                             cmd_options: inst.cmd_options 
