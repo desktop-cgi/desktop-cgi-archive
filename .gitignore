@@ -123,14 +123,14 @@ binaries/server-mongoose/src/*
 # binaries/server-tomcat/src/*
 */*/__pycache__/
 
-# tmp/*
-# cache/*
-# data/app/*
-# data/crash/*
-# data/data/*
-# data/logs/*
-# data/recent/*
-# data/user/*
+tmp/*
+cache/*
+data/app/*
+data/crash/*
+data/data/*
+data/logs/*
+data/recent/*
+data/user/*
 
 
 
