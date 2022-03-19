@@ -7,15 +7,27 @@ module.exports = () => {
         try {
             // Load The FS Module & The Config File
             var express = require('express');
+            var path = require("path");
+            // var bodyParser = require('body-parser');
             var app = express();
 
             const proxies = require("./cgifiles");
             const cgifiles = require("./proxy");
 
             proxies().then(function (proxyapp) {
+                
                 app.use(proxyapp);
+
+                app.use('/assets', express.static(path.join(__dirname, '/www/ui/assets')))
+                app.set('view engine', 'ejs');
+
                 cgifiles().then(function (cgifilesapp) {
                     app.use(cgifilesapp);
+
+                    app.use("/", function (req, res) {
+                        res.render('../www/ui/index');
+                    });
+
                     app.use("*", function (req, res) {
                         res.send(`"Testing my server"`);
                     });
@@ -26,6 +38,8 @@ module.exports = () => {
                     });
                 }.bind(app), function (err) {
                     reject(err);
+                }).catch(function (error) {
+                    console.log(error);
                 });
 
             }.bind(app), function (err) {

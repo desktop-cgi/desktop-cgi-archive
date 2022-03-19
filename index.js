@@ -4,6 +4,8 @@ const electron = require('electron');
 var path = require("path");
 
 electron.app.allowRendererProcessReuse = true;
+// electron.app.commandLine.appendSwitch('ignore-certificate-errors')
+electron.app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
 global.appRoot = process.cwd();
 
 const fs = require('fs');
