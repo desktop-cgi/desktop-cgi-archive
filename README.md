@@ -41,7 +41,6 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
     - running multiple interpreters in one app
     - running multiple proxies in one app
     - multiple embedded servers in one app
-* Allows remote web server proxies
 * Allows embedding database servers (in development) - using `cgijs process` module
 * `cgijs` is Nodejs framework independent / agnostic for serving CGI or interpreted scripting apps via files, or server based web apps via proxies
     - Express Recommended and used for demo
