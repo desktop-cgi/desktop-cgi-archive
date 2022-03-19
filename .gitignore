@@ -113,6 +113,7 @@ binaries/lang-java/*
 binaries/lang-net/*
 binaries/lang-perl/*
 binaries/lang-php/*
+binaries/lang-node/*
 binaries/lang-python/*
 binaries/lang-python3/*
 binaries/lang-ruby/*
