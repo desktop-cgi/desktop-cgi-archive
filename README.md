@@ -4,7 +4,7 @@ Desktop-CGI is a desktop executable app that is created using electron, nodejs e
 
 # Features
 
-    Electron based express application that runs Node - Express based application that runs CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server
+Electron based express application that runs and Electron - Node - Express based application running any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server
 
 
 ![Desktop CGI](./desktop-cgi.jpeg)
