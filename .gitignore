@@ -134,4 +134,7 @@ data/recent/*
 data/user/*
 
 
+Dockerfile
+Dockerfile.dev
+docker-compose.yaml
 
