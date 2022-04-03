@@ -22,6 +22,7 @@ USER ${user}
 
 
 RUN mkdir ${home}/app
+RUN git clone https://github.com/ganeshkbhat/desktop-cgi.git .
 RUN chown -R ${user} ${home}/app
 WORKDIR ${home}/app
 
