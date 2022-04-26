@@ -10,3 +10,5 @@
     - https://learn.hashicorp.com/collections/vagrant/getting-started
 - Set App Paths customization to docs
     - https://www.electronjs.org/docs/all#appsetpathname-path
+- Docker for Electron Build
+    - https://hub.docker.com/r/electronuserland/builder

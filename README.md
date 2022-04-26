@@ -1,5 +1,5 @@
 # desktop-cgi
-Desktop-CGI is a desktop executable app that can be created from any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server. It supports all major Operating systems like Windows, Linux, and MacOS.
+Desktop-CGI is a desktop executable app that can be created from any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server. It supports embedding and managing embeddable databases and executables. It supports all major Operating systems supported by electron like Windows, Linux, and MacOS supported by Electron.
 
 
 `[Funding Invited]`
@@ -11,7 +11,7 @@ Desktop-CGI is a desktop executable app that can be created from any CGI files o
 # Highlights
 
 
-Desktop-CGI can serve any CGI files, OR CGI / Scripted / Interpreted languages like PHP, Ruby, Python, Perl, JSP, ASPX, Other Interpreted Languages through embedded webservers, OR any remote proxy webserver apps 
+Desktop-CGI can serve any CGI files, OR CGI / Scripted / Interpreted languages like PHP, Ruby, Python, Perl, JSP, ASPX, Other Interpreted Languages through embedded webservers, OR any remote proxy (any protocol / webserver) apps 
 
 
 Desktop-CGI runs an Electron - Node - Express based application under the hood and supports major Operating systems like Windows, Linux, Mac or any operating systems supported by Electron.
@@ -20,15 +20,13 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 # Usage
 
 * Install node.js from [https://www.nodejs.com](https://www.nodejs.com)
-* Clone the Git repository (Alternatively, download the git repository)
-* `cd path/to/desktop-cgi-folder` (change directory) into the git repository folder from command line / shell / powershell
+* Clone the [Git repository](https://github.com/ganeshkbhat/desktop-cgi) (Alternatively, download the git repository)
+* Change to the git repository directory / folder `cd path/to/desktop-cgi` from command line / shell / powershell
 * Run command `npm install`
-* Install electron packager
-    - [electron-packager](https://github.com/electron/electron-packager): `npm install -g electron-packager`
-* Add your application in the respective `www` folder
-* Check and modify `config.json` file for your application's configuration needs
-* Check if your electron app runs using command `npm run electron`
-* Run command `npm run electronbuild`
+* Add your application in the respective `www` folder [TODO - Simplify]
+* Check and modify `config-**os**.json` file for your application's configuration needs [TODO - Simplify]
+* Check if your electron app runs using command `npm run electron` [TODO - Simplify]
+* Run command `npm run electronbuild` [TODO - Simplify]
 
 
 # Functionality Details
@@ -36,17 +34,17 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 
 ##### Electron based Desktop application that runs CGI Server
 
+* `cgijs` is Nodejs framework independent / agnostic for serving CGI or interpreted scripting apps via files, or server based web apps via proxies
+    - Express Recommended and used for demo
 * Run any script files that supports CGI based file script serving - using `cgijs file` module
 * Run any host that serves a web app - using `cgijs proxy` module
     - In App / Local / Remote proxy support
-* Allows embedding servers like httpd, nginx, etc to serve web applications - using `cgijs process` module
 * Allows
     - running multiple interpreters in one app
-    - running multiple proxies in one app
+    - running multiple proxies (currently http, websockets, tcp, udp. grpc planned) in one app
     - multiple embedded servers in one app
+* Allows embedding servers like httpd, nginx, etc to serve web applications - using `cgijs process` module
 * Allows embedding database servers (in development) - using `cgijs process` module
-* `cgijs` is Nodejs framework independent / agnostic for serving CGI or interpreted scripting apps via files, or server based web apps via proxies
-    - Express Recommended and used for demo
 
 
 ##### The script should pipe all interpreted language files below:
@@ -62,7 +60,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 
 * Jsp (With Tomcat embedded)
 * Aspx (Version Independent - With local IIS proxy, Apache embedded)
-* Any app using local / remote proxy
+* Any app using local / remote proxy (currently http, websockets, tcp, udp. grpc planned)
 
 
 ##### The script should currently allow embedding following servers for proxy [TODO: In Development]:
@@ -85,7 +83,15 @@ The script can proxy to any File, most embeddable web servers, and/ or Proxy-abl
 
 * Application Dependencies:
     - cgi-js: (>=1.0.0)
+    - electron": (>=18.1.0)
 
+* Application Demo Dependencies:
+    - body-parser: (>=1.20.0)
+    - ejs: (>=3.1.7)
+    - express: (>=4.18.0)
+    - fsevents: (>=2.3.2)
+    - socket.io: (>=4.5.0)
+    - ws: (>=8.5.0)
 
 ##### Usage Demo:
 
@@ -94,20 +100,22 @@ Check `index.js` and `server` folder for demo code
 
 # Technical Specifications
 
-...  * Wiki link to be added
+...  * Technical specifications to be added
 
 
 # Wiki
 
+...  * Wiki link to be added
+
 
 # Status
 
-    In development
+    In active development
 
 
 # Todo
 
-Check file - [.todo](./.todo)
+Check file - [.todo](https://github.com/ganeshkbhat/desktop-cgi/.todo)
 
 
 # References
@@ -115,12 +123,10 @@ Check file - [.todo](./.todo)
 ##### Other Packing Solutions you can use
 
 - References: [Electron Application Distrubution](https://www.electronjs.org/docs/tutorial/application-distribution)
-- [electron-forge](https://github.com/electron-userland/electron-forge): `npm install -g @electron-forge/cli`
-- [electron-builder](https://github.com/electron-userland/electron-builder): `npm install -g electron-builder`
 
 # License
 
-The MIT License (MIT) - See [LICENSE](./LICENSE) for further details
+The MIT License (MIT) - See [LICENSE](https://github.com/ganeshkbhat/desktop-cgi/LICENSE) for further details
 
 
 Copyright © 2019 - till library works:

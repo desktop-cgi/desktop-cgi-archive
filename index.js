@@ -1,14 +1,29 @@
-const { app, BrowserWindow, remote } = require('electron');
-// const {getCurrentWindow, globalShortcut} = remote;
+/**
+ * 
+ */
+
+const fs = require('fs');
+const path = require("path");
 const electron = require('electron');
-var path = require("path");
+// let { app, BrowserWindow, remote, screen } = require('electron');
+// let {getCurrentWindow, globalShortcut} = remote;
 
 electron.app.allowRendererProcessReuse = true;
+
+// USAGE:
+// Ignores Certificate errors in Electron
 // electron.app.commandLine.appendSwitch('ignore-certificate-errors')
+
+// USAGE:
+// Disable Hardware acceleration if you get the error:
+// [14880:1207/145651.085:ERROR:gpu_init.cc(457)] Passthrough is not supported, GL is disabled, ANGLE is
+// https://stackoverflow.com/questions/70267992/win10-electron-error-passthrough-is-not-supported-gl-is-disabled-angle-is
+electron.app.disableHardwareAcceleration()
+
 electron.app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
 global.appRoot = process.cwd();
 
-const fs = require('fs');
+
 let config = JSON.parse(fs.readFileSync(path.resolve('./server/config.json')));
 
 let win;
@@ -27,7 +42,7 @@ async function createWindow() {
         console.log('Error Starting Server', err);
     });
 
-    win = new BrowserWindow({
+    win = new electron.BrowserWindow({
         width: width,
         height: height,
         backgroundColor: '#FFF',
@@ -50,37 +65,39 @@ async function createWindow() {
     });
 }
 
-app.setPath('temp', process.cwd() + config.app.temp)
-app.setPath('cache', process.cwd() + config.app.cache)
-app.setPath('downloads', process.cwd() + config.app.downloads)
-app.setPath('userData', process.cwd() + config.app.userData)
-app.setPath('logs', process.cwd() + config.app.logs)
-app.setPath('recent', process.cwd() + config.app.recent)
+electron.app.setPath('temp', process.cwd() + config.app.temp)
+electron.app.setPath('cache', process.cwd() + config.app.cache)
+electron.app.setPath('downloads', process.cwd() + config.app.downloads)
+electron.app.setPath('userData', process.cwd() + config.app.userData)
+electron.app.setPath('logs', process.cwd() + config.app.logs)
+electron.app.setPath('recent', process.cwd() + config.app.recent)
 // Failed to set path error
-// app.setPath('crashDump', config.app.crashDump)
-app.setPath('appData', process.cwd() + config.app.appData)
+// electron.app.setPath('crashDump', config.app.crashDump)
+electron.app.setPath('appData', process.cwd() + config.app.appData)
 
+// 
 // Alternatively, use following AppData path based on OS
 // aix, darwin, freebsd, linux, openbsd, sunos, win32
-
+// 
 // if (process.platform === 'win32') {
-//     app.setPath('appData', '%APPDATA%')
+//     electron.app.setPath('appData', '%APPDATA%')
 // } else if (process.platform === 'darwin') {
-//     app.setPath('appData', '$XDG_CONFIG_HOME')
+//     electron.app.setPath('appData', '$XDG_CONFIG_HOME')
 // } else if (process.platform === 'linux') {
-//     app.setPath('appData', '~/Library/Application Support')
+//     electron.app.setPath('appData', '~/Library/Application Support')
 // }
+// 
 
-app.on('ready', createWindow.bind(apps));
-app.on('window-all-closed', function () {
+electron.app.on('ready', createWindow.bind(apps));
+electron.app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
-        app.quit();
+        electron.app.quit();
         apps = {};
     }
 }.bind(apps))
 
-app.on('activate', function () {
+electron.app.on('activate', function () {
     if (win === null) {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow();
+        if (electron.BrowserWindow.getAllWindows().length === 0) createWindow();
     }
 }.bind(apps));

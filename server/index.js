@@ -11,19 +11,23 @@ module.exports = () => {
             // var bodyParser = require('body-parser');
             var app = express();
 
-            const proxies = require("./cgifiles");
-            const cgifiles = require("./proxy");
+            const cgifiles = require("./cgifiles");
+            const proxies = require("./recursive-httpproxies");
 
             proxies().then(function (proxyapp) {
                 
-                app.use(proxyapp);
-
                 app.use('/assets', express.static(path.join(__dirname, '/www/ui/assets')))
                 app.set('view engine', 'ejs');
+
+                app.use(proxyapp.app);
 
                 cgifiles().then(function (cgifilesapp) {
                     app.use(cgifilesapp);
 
+                    app.use("/test", function (req, res) {
+                        res.render('../www/ui/language');
+                    });
+                    
                     app.use("/", function (req, res) {
                         res.render('../www/ui/index');
                     });

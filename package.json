@@ -1,7 +1,8 @@
 {
   "name": "desktop-cgi",
   "version": "1.0.0",
-  "description": "create desktop application using cgi files, cgi apps served with most common embedded servers, or any proxy web servers using electron and express server that runs on any OS supported by Electron",
+  "description": "Desktop-CGI is a desktop executable app that can be created from any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server. It supports embedding and managing embeddable databases and executables. It supports all major Operating systems like Windows, Linux, and MacOS supported by Electron.",
+  "author": "Ganesh B",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,6 +12,40 @@
     "electron": "electron --trace-warnings .",
     "electronbuild": "echo \"TODO: Help sponsor this\""
   },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cgijs": "^1.0.0",
+    "ejs": "^3.1.7",
+    "electron": "^18.1.0",
+    "express": "^4.18.0",
+    "fsevents": "^2.3.2",
+    "socket.io": "^4.5.0",
+    "ws": "^8.5.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "chai": "4.3.6",
+    "electron-builder": "^23.0.3",
+    "electron-forge": "^5.2.4",
+    "electron-installer-debian": "^3.1.0",
+    "electron-installer-flatpak": "^0.8.0",
+    "electron-installer-redhat": "^3.3.0",
+    "electron-installer-snap": "^5.1.0",
+    "electron-installer-windows": "^3.0.0",
+    "electron-installer-zip": "^0.1.2",
+    "electron-packager": "^15.4.0",
+    "electron-packager-interactive": "^0.1.3",
+    "electron-packager-languages": "^0.5.0",
+    "electron-packager-plugin-non-proprietary-codecs-ffmpeg": "^1.0.2",
+    "electron-rebuild": "^3.2.7",
+    "electron-windows-store": "^2.1.0",
+    "electron-winstaller": "^5.0.0",
+    "electron-wix-msi": "^4.0.0",
+    "eslint": "8.11.0",
+    "mocha": "9.2.2",
+    "sinon": "13.0.1",
+    "supertest": "6.2.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ganeshkbhat/desktop-cgi.git"
@@ -18,6 +53,8 @@
   "keywords": [
     "desktop",
     "application",
+    "apps",
+    "cgijs",
     "cgi",
     "files",
     "php",
@@ -27,40 +64,34 @@
     "jsp",
     "asp",
     "aspx",
-    "web",
-    "applications",
-    "web",
-    "based",
+    "javascript",
+    "node",
+    "nodejs",
+    "node.js",
     "desktop",
-    "apps",
-    "cgi",
     "server",
     "proxy",
     "web",
-    "server"
+    "server",
+    "electron cgi php",
+    "electron cgi py",
+    "electron cgi rb",
+    "electron cgi php",
+    "electron cgi js",
+    "electron scripts",
+    "electron cgi scripts",
+    "run cgi scripts in electron",
+    "run cgi scripts using javascript in electron",
+    "run cgi scripts using js in electron",
+    "run proxy to third party servers in electron",
+    "run proxy to third party cgi based servers in electron",
+    "manage embedded servers in electron",
+    "manage embedded executable processes in electron",
+    "manage embedded databases in electron"
   ],
-  "author": "Ganesh B",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ganeshkbhat/desktop-cgi/issues"
   },
-  "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme",
-  "dependencies": {
-    "body-parser": "^1.19.2",
-    "cgijs": "1.0.0-beta-01",
-    "ejs": "^3.1.6",
-    "electron": "17.1.2",
-    "express": "4.17.3",
-    "fsevents": "2.3.2",
-    "socket.io": "4.4.1",
-    "ws": "8.5.0"
-  },
-  "devDependencies": {
-    "chai": "4.3.6",
-    "electron-packager": "15.4.0",
-    "eslint": "8.11.0",
-    "mocha": "9.2.2",
-    "sinon": "13.0.1",
-    "supertest": "6.2.2"
-  }
+  "homepage": "https://github.com/ganeshkbhat/desktop-cgi#readme"
 }
