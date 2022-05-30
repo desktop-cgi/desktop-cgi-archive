@@ -4,28 +4,29 @@ const os = require("os");
 const fs = require("fs");
 const express = require("express");
 const cgijs = require("cgijs");
+let cUtils = cgijs.utils();
 
 // Basic Docs
 // https://www.npmjs.com/package/http-proxy
 
+
 module.exports = () => {
     let pr = new Promise(function (resolve, reject) {
-        const ostype = os.type();
+        const ostype = cUtils.os.get();
         let configurations;
 
         if (ostype == "win32" || ostype === "Windows_NT") {
-            configurations = JSON.parse(fs.readFileSync('./server/config-win.json'));
-        } else if (ostype == "linux" || ostype ==="debian" || ostype === "fedora") {
-            configurations = JSON.parse(fs.readFileSync('./server/config-linux.json'));
+            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-win_demo.json')));
+        } else if (ostype == "linux") {
+            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-linux_demo.json')));
         } else if (ostype == "mac") {
-            configurations = JSON.parse(fs.readFileSync('./server/config-mac.json'));
+            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-mac_demo.json')));
         }
-
+        
         try {
-            
-            resolve({  })
+            resolve({  });
         } catch (e) {
-            console.log("Error occured in files recursive ", e.toString())
+            console.log("Error occured in files recursive ", e.toString());
             reject({ error: e });
         }
     });

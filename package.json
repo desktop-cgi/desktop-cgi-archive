@@ -1,6 +1,6 @@
 {
   "name": "desktop-cgi",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Desktop-CGI is a desktop executable app that can be created from any CGI files or CGI web apps that can be served from an file, an embedded web server using proxy, or an remote proxy web server. It supports embedding and managing embeddable databases and executables. It supports all major Operating systems like Windows, Linux, and MacOS supported by Electron.",
   "author": "Ganesh B",
   "main": "index.js",
@@ -14,12 +14,13 @@
   },
   "dependencies": {
     "body-parser": "^1.20.0",
-    "cgijs": "^1.0.0",
+    "cgijs": "^1.1.0",
     "ejs": "^3.1.7",
-    "electron": "^18.1.0",
+    "electron": "^19.0.1",
     "express": "^4.18.0",
     "fsevents": "^2.3.2",
     "socket.io": "^4.5.0",
+    "socket.io-client": "^4.5.0",
     "ws": "^8.5.0"
   },
   "devDependencies": {

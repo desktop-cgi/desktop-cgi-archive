@@ -4,16 +4,19 @@ const fs = require('fs');
 const express = require('express');
 const cgijs = require("cgijs");
 const path = require("path");
+const url = require("url");
+let cUtils = cgijs.utils();
 
 module.exports = () => {
     let pr = new Promise(function (resolve, reject) {
         try {
+            let ostype = cUtils.os.get();
+
             function response(type, exeOptions) {
-                const cgijs = require("cgijs");
                 let cgi = cgijs.init();
                 return function (req, res, next) {
                     let requestObject = {
-                        url: URL.parse(req.originalUrl),
+                        url: url.parse(req.originalUrl),
                         originalUrl: req.originalUrl,
                         query: req.url.query,
                         method: req.method,
@@ -21,6 +24,7 @@ module.exports = () => {
                         ip: req.ip,
                         headers: req.headers
                     }
+                    
                     cgi.serve(type, requestObject, exeOptions).then(function (result) {
                         result.statusCode = (!result.statusCode) ? 200 : result.statusCode;
                         res.status(result.statusCode).send(result.response);
@@ -33,19 +37,20 @@ module.exports = () => {
 
             var app = express();
             let configurations;
+            
             if (ostype == "win32" || ostype === "Windows_NT") {
-                configurations = JSON.parse(fs.readFileSync('./server/config-win.json'));
-            } else if (ostype == "linux" || ostype ==="debian" || ostype === "fedora") {
-                configurations = JSON.parse(fs.readFileSync('./server/config-linux.json'));
+                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-win_demo.json')));
+            } else if (ostype == "linux") {
+                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-linux_demo.json')));
             } else if (ostype == "mac") {
-                configurations = JSON.parse(fs.readFileSync('./server/config-mac.json'));
+                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-mac_demo.json')));
             }
-                
-            let cgifiles = Object.keys(configuration.cgifiles);
+            
+            let cgifiles = Object.keys(configurations.cgifiles);
 
             for (let i = 0; i < cgifiles.length; i++) {
-                let inst = configuration.cgifiles[cgifiles[i]];
-
+                let inst = configurations.cgifiles[cgifiles[i]];
+                // Check this again for use / all / specific method
                 app.use(
                     inst.path,
                     response(

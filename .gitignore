@@ -140,3 +140,5 @@ docker-compose.yaml
 
 ./github/desktop-cgi/docker-readme-file.txt
 # https://stackoverflow.com/questions/36327862/bitbucket-create-repository-and-sub-modules
+
+# www/deda-service-manager
