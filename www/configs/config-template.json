@@ -4,10 +4,11 @@
         "port": 3001,
         "app": "demo",
         "redirect_home": "/proxyone",
+        "binaries": "/binaries",
         "options": {
             "viewengine": "ejs",
-            "views": "www/node-templates",
-            "assets": "/www/ui/assets"
+            "views": "/www/demoapp/node-templates",
+            "assets": "/www/demoapp/ui/assets"
         }
     },
     "session": {
@@ -24,15 +25,110 @@
         "appData": "/data/app"
     },
     "processes": {
-        "nginx": {},
-        "httpd": {},
-        "mongodb": {},
+        "nginx": {
+            "type": "nginx"
+        },
+        "httpd": {
+            "type": "httpd"
+        },
         "mysql": {},
+        "tomcat": {
+            "type": "tomcat"
+        },
+        "configpath": {
+            "path": "/www/processes/ls.json"
+        },
+        "supportedprocess": {
+            "type": "mongodb"
+        },
         "pgsql": {},
-        "tomcat": {}
+        "mongodb": {
+            "name": "mongodprocess",
+            "exe": "mongod",
+            "type": "executable",
+            "os": "win32",
+            "cmds": {
+                "start": {
+                    "exe": "mongod",
+                    "usage": "",
+                    "args": [
+                        "-k start"
+                    ]
+                },
+                "stop": {
+                    "exe": "mongod",
+                    "usage": "",
+                    "args": [
+                        "-k stop"
+                    ]
+                },
+                "reload": {
+                    "exe": "mongod",
+                    "usage": "",
+                    "args": [
+                        "-k restart"
+                    ]
+                },
+                "startbatwin32": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_start.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "stopbatwin32": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_taskkill.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "startbatWindows_NT": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_start.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "stopbatWindows_NT": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_taskkill.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "startbatlinux": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\linux_start.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "stopbatlinux": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\linux_taskkill.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "startbatmac": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\mac_start.bat",
+                    "usage": "",
+                    "args": []
+                },
+                "stopbatmac": {
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\mac_taskkill.bat",
+                    "usage": "",
+                    "args": []
+                }
+            },
+            "options": {
+                "stdio": "inherit",
+                "shell": false
+            },
+            "other": {
+                "paths": {
+                    "conf": "",
+                    "exe": ""
+                },
+                "env": "",
+                "setprocess": true,
+                "executetype": "exec",
+                "command": ""
+            }
+        }
     },
     "proxies": {
         "proxyone": {
+            "type": "http",
             "options": {
                 "target": {
                     "protocol": "http:",
@@ -71,16 +167,76 @@
         }
     },
     "cgifiles": {
+        "wordpress": {
+            "label": "PHP Wordpress",
+            "identity": "phpwordpress",
+            "path": "/wp",
+            "lang_type": "php",
+            "web_root_folder": "./www/demoapp/files/php",
+            "bin": "",
+            "config_path": "",
+            "host": "localhost",
+            "port": 3001,
+            "cmd_options": {}
+        },
+        "ecommerce": {
+            "label": "PHP eCommerce",
+            "identity": "phpecommerce",
+            "path": "/ecom",
+            "lang_type": "php",
+            "web_root_folder": "./www/demoapp/files/php",
+            "bin": "",
+            "config_path": "",
+            "host": "localhost",
+            "port": 3001,
+            "cmd_options": {}
+        },
+        "phprestapi": {
+            "label": "Rest API",
+            "identity": "phprestapi",
+            "path": "/phprest",
+            "lang_type": "php",
+            "web_root_folder": "./www/demoapp/files/php",
+            "bin": "",
+            "config_path": "",
+            "host": "localhost",
+            "port": 3001,
+            "cmd_options": {}
+        },
+        "drupal": {
+            "label": "Drupal",
+            "identity": "phpdrupal",
+            "path": "/drupal",
+            "lang_type": "php",
+            "web_root_folder": "./www/demoapp/files/php",
+            "bin": "",
+            "config_path": "",
+            "host": "localhost",
+            "port": 3001,
+            "cmd_options": {}
+        },
+        "phpinfo": {
+            "label": "PHP File Demo",
+            "identity": "phpinfo",
+            "path": "/phpinfo/info",
+            "lang_type": "php",
+            "web_root_folder": "./www/demoapp/files/php",
+            "bin": "",
+            "config_path": "",
+            "host": "localhost",
+            "port": 3001,
+            "cmd_options": {}
+        },
         "phpappone": {
-            "label": "",
-            "identity": "",
+            "label": "PHP File Demo",
+            "identity": "filedemo",
             "path": "/phpc",
             "lang_type": "php",
-            "web_root_folder": "./www/php",
+            "web_root_folder": "./www/demoapp/files/php",
             "bin": "",
             "config_path": "",
             "host": "127.0.0.1",
-            "port": "3001",
+            "port": 3001,
             "cmd_options": {}
         },
         "phpapptwo": {
@@ -88,14 +244,14 @@
             "identity": "",
             "path": "/phpp",
             "lang_type": "php",
-            "web_root_folder": "./www/php",
+            "web_root_folder": "./www/demoapp/files/php",
             "bin": {
                 "bin_path": "",
                 "useDefault": false
             },
             "config_path": "",
             "host": "127.0.0.1",
-            "port": "3001",
+            "port": 3001,
             "cmd_options": {}
         },
         "phpappthree": {
@@ -103,14 +259,14 @@
             "identity": "",
             "path": "/phppp",
             "lang_type": "php",
-            "web_root_folder": "./www/php",
+            "web_root_folder": "./www/demoapp/files/php",
             "bin": {
                 "bin_path": "",
                 "useDefault": true
             },
             "config_path": "",
             "host": "127.0.0.1",
-            "port": "3001",
+            "port": 3001,
             "cmd_options": {}
         }
     }
