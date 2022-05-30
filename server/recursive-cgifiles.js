@@ -39,11 +39,11 @@ module.exports = () => {
             let configurations;
             
             if (ostype == "win32" || ostype === "Windows_NT") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-win_demo.json')));
+                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-win_demo.json')));
             } else if (ostype == "linux") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-linux_demo.json')));
+                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-linux_demo.json')));
             } else if (ostype == "mac") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, '../server/configs/config-mac_demo.json')));
+                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
             }
             
             let cgifiles = Object.keys(configurations.cgifiles);

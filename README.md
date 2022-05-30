@@ -23,10 +23,11 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 * Clone the [Git repository](https://github.com/ganeshkbhat/desktop-cgi) (Alternatively, download the git repository)
 * Change to the git repository directory / folder `cd path/to/desktop-cgi` from command line / shell / powershell
 * Run command `npm install`
-* Add your application in the respective `www` folder [TODO - Simplify]
-* Check and modify `config-**os**.json` file for your application's configuration needs [TODO - Simplify]
-* Check if your electron app runs using command `npm run electron` [TODO - Simplify]
+* Add your application in the respective `www` folder or sub-folder [TODO - Simplify]
+* Check and modify `server/config/config-**template**.json` file for your application's configuration needs
+* Check if your electron app runs using command `npm run electron`
 * Run command `npm run electronbuild` [TODO - Simplify]
+* [Demo] A demo app is 
 
 
 # Functionality Details
@@ -122,7 +123,7 @@ Check file - [.todo](https://github.com/ganeshkbhat/desktop-cgi/.todo)
 
 ##### Other Packing Solutions you can use
 
-- References: [Electron Application Distrubution](https://www.electronjs.org/docs/tutorial/application-distribution)
+- References: [Electron Application Distribution](https://www.electronjs.org/docs/tutorial/application-distribution)
 
 # License
 
@@ -132,3 +133,4 @@ The MIT License (MIT) - See [LICENSE](https://github.com/ganeshkbhat/desktop-cgi
 Copyright © 2019 - till library works:
     Ganesh B <ganeshsurfs@gmail.com>
 
+<!-- Consider latest version feature: https://api.github.com/repos/DEDAjs/deda-service-manager/releases/latest -->

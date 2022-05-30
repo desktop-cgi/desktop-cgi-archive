@@ -26,16 +26,16 @@ electron.app.disableHardwareAcceleration()
 electron.app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
 global.appRoot = process.cwd();
 
-console.log(path.join(__dirname, 'server/configs/config-win.json'));
+console.log(path.join(__dirname, '/www/configs/config-win.json'));
 
 let ostype = cUtils.os.get();
 let config;
 if (ostype == "win32" || ostype === "Windows_NT") {
-    config = JSON.parse(fs.readFileSync(path.join(__dirname, './server/configs/config-win_demo.json')));
+    config = JSON.parse(fs.readFileSync(path.join(__dirname, '/www/configs/config-win_demo.json')));
 } else if (ostype == "linux") {
-    config = JSON.parse(fs.readFileSync(path.join(__dirname, './server/configs/config-linux_demo.json')));
+    config = JSON.parse(fs.readFileSync(path.join(__dirname, '/www/configs/config-linux_demo.json')));
 } else if (ostype == "mac") {
-    config = JSON.parse(fs.readFileSync(path.join(__dirname, './server/configs/config-mac_demo.json')));
+    config = JSON.parse(fs.readFileSync(path.join(__dirname, '/www/configs/config-mac_demo.json')));
 }
 
 let win;

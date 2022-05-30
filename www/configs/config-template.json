@@ -1,7 +1,14 @@
 {
     "server": {
         "host": "localhost",
-        "port": 3001
+        "port": 3001,
+        "app": "demo",
+        "redirect_home": "/proxyone",
+        "options": {
+            "viewengine": "ejs",
+            "views": "www/node-templates",
+            "assets": "/www/ui/assets"
+        }
     },
     "session": {
         "secret": "1234567890"
@@ -26,7 +33,6 @@
     },
     "proxies": {
         "proxyone": {
-            "type": "http",
             "options": {
                 "target": {
                     "protocol": "http:",
@@ -65,76 +71,16 @@
         }
     },
     "cgifiles": {
-        "wordpress": {
-            "label": "PHP Wordpress",
-            "identity": "phpwordpress",
-            "path": "/wp",
-            "lang_type": "php",
-            "web_root_folder": "./www/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
-        },
-        "ecommerce": {
-            "label": "PHP eCommerce",
-            "identity": "phpecommerce",
-            "path": "/ecom",
-            "lang_type": "php",
-            "web_root_folder": "./www/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
-        },
-        "phprestapi": {
-            "label": "Rest API",
-            "identity": "phprestapi",
-            "path": "/phprest",
-            "lang_type": "php",
-            "web_root_folder": "./www/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
-        },
-        "drupal": {
-            "label": "Drupal",
-            "identity": "phpdrupal",
-            "path": "/drupal",
-            "lang_type": "php",
-            "web_root_folder": "./www/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
-        },
-        "phpinfo": {
-            "label": "PHP File Demo",
-            "identity": "phpinfo",
-            "path": "/phpinfo/info",
-            "lang_type": "php",
-            "web_root_folder": "./www/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
-        },
         "phpappone": {
-            "label": "PHP File Demo",
-            "identity": "filedemo",
+            "label": "",
+            "identity": "",
             "path": "/phpc",
             "lang_type": "php",
             "web_root_folder": "./www/php",
             "bin": "",
             "config_path": "",
             "host": "127.0.0.1",
-            "port": 3001,
+            "port": "3001",
             "cmd_options": {}
         },
         "phpapptwo": {
@@ -149,7 +95,7 @@
             },
             "config_path": "",
             "host": "127.0.0.1",
-            "port": 3001,
+            "port": "3001",
             "cmd_options": {}
         },
         "phpappthree": {
@@ -164,7 +110,7 @@
             },
             "config_path": "",
             "host": "127.0.0.1",
-            "port": 3001,
+            "port": "3001",
             "cmd_options": {}
         }
     }

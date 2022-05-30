@@ -1,7 +1,14 @@
 {
     "server": {
         "host": "localhost",
-        "port": 3001
+        "port": 3001,
+        "app": "demo",
+        "redirect_home": "/proxyone",
+        "options": {
+            "viewengine": "ejs",
+            "views": "www/node-templates",
+            "assets": "/www/ui/assets"
+        }
     },
     "session": {
         "secret": "1234567890"
