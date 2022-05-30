@@ -51,7 +51,7 @@ module.exports = () => {
                     app.use("/cgifiles", cgifilesapp);
 
                     if (configurations.server.app === "demo") {
-                        let demoapp = await require("./demo-app")();
+                        let demoapp = await require("./demoapproutes")();
                         app.use("/", demoapp.app);
                     } else {
                         app.get("/", function (req, res, next) {
