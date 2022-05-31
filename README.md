@@ -5,7 +5,7 @@ Desktop-CGI is a desktop executable app that can be created from any CGI files o
 `[Funding Invited]`
 
 
-![Desktop CGI](./desktop-cgi.jpeg)
+![Desktop CGI](https://github.com/ganeshkbhat/desktop-cgi/blob/master/desktop-cgi.jpeg)
 
 
 # Highlights
@@ -116,7 +116,7 @@ Check `index.js` and `server` folder for demo code
 
 # Todo
 
-Check file - [.todo](https://github.com/ganeshkbhat/desktop-cgi/.todo)
+Check file - [.todo](https://github.com/ganeshkbhat/desktop-cgi/blob/master/.todo)
 
 
 # References
@@ -127,7 +127,7 @@ Check file - [.todo](https://github.com/ganeshkbhat/desktop-cgi/.todo)
 
 # License
 
-The MIT License (MIT) - See [LICENSE](https://github.com/ganeshkbhat/desktop-cgi/LICENSE) for further details
+The MIT License (MIT) - See [LICENSE](https://github.com/ganeshkbhat/desktop-cgi/blob/master/LICENSE) for further details
 
 
 Copyright © 2019 - till library works:
