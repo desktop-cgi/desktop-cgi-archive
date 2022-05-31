@@ -34,7 +34,7 @@ module.exports = () => {
             let name = procs[i];
             let process;
 
-            // Start the process
+            // Start the process as a seperate thread
             if (!!processConf.path) {
                 process = require("./processes/process")(path.join(__dirname, processConf.path));
             } else if (!!processConf.type) {

@@ -1,4 +1,13 @@
+/**
+ * MySQL Database script
+ * 
+ * Start MySQL Database using .bat / .sh[todo] file
+ * [TODO] Check alternatives of Code
+ * 
+ */
 
+
+'use strict';
 
 let conf = {
     name: "mysqlprocess",

@@ -1,4 +1,16 @@
+/**
+ * Apache HTTPD server script
+ * 
+ * Start Apache HTTPD Server using .bat / .sh[todo] file
+ * [TODO] Check alternatives of Code
+ * 
+ */
 
+
+'use strict';
+
+// Uses httpd.conf at binaries\server-httpd\win\conf\httpd.conf
+// Uses binary path at binaries\server-httpd\win\bin
 
 let conf = {
     name: "apache2process",

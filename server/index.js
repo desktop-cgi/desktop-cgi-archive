@@ -1,6 +1,5 @@
 'use strict';
 
-const { app } = require('electron');
 const fs = require('fs');
 const url = require('url');
 const os = require("os");
@@ -17,6 +16,7 @@ module.exports = () => {
 
             const cgifiles = require("./recursive-cgifiles");
             const proxies = require("./recursive-proxies");
+            const processes = require("./recursive-processes");
 
             const ostype = os.type();
             let configurations;
@@ -29,55 +29,61 @@ module.exports = () => {
                 configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
             }
 
-            proxies().then(function (proxyapp) {
+            processes().then(function(procs) {
+                
+                proxies().then(function (proxyapp) {
 
-                if (!!configurations.server.options.assets) {
-                    app.use('/assets', express.static(path.join(__dirname, "../", configurations.server.options.assets)))
-                }
-                if (!!configurations.server.options.views) {
-                    app.set('views', path.join(__dirname, "../", configurations.server.options.views));
-                }
-                if (!!configurations.server.options.viewengine) {
-                    app.set('view engine', configurations.server.options.viewengine);
-                }
-
-                for (let i = 0; i < proxyapp.length; i++) {
-                    // Check this again for use / all / specific method
-                    app.use("/" + proxyapp[i].key, proxyapp[i].value);
-                }
-
-                cgifiles().then(async function (cgifilesapp) {
-                    // Check this again for use / all / specific method
-                    app.use("/cgifiles", cgifilesapp);
-
-                    if (configurations.server.app === "demo") {
-                        let demoapp = await require("./demoapproutes")();
-                        app.use("/", demoapp.app);
-                    } else {
-                        app.get("/", function (req, res, next) {
-                            res.redirect(configurations.server.redirect_home);
-                        });
+                    if (!!configurations.server.options.assets) {
+                        app.use('/assets', express.static(path.join(__dirname, "../", configurations.server.options.assets)))
                     }
-
-                    app.all("*", function (req, res, next) {
-                        res.send(`"Testing my server"`);
+                    if (!!configurations.server.options.views) {
+                        app.set('views', path.join(__dirname, "../", configurations.server.options.views));
+                    }
+                    if (!!configurations.server.options.viewengine) {
+                        app.set('view engine', configurations.server.options.viewengine);
+                    }
+    
+                    for (let i = 0; i < proxyapp.length; i++) {
+                        // Check this again for use / all / specific method
+                        app.use("/" + proxyapp[i].key, proxyapp[i].value);
+                    }
+    
+                    cgifiles().then(async function (cgifilesapp) {
+                        // Check this again for use / all / specific method
+                        app.use("/cgifiles", cgifilesapp);
+    
+                        if (configurations.server.app === "demo") {
+                            let demoapp = await require("./demoapproutes")();
+                            app.use("/", demoapp.app);
+                        } else {
+                            app.get("/", function (req, res, next) {
+                                res.redirect(configurations.server.redirect_home);
+                            });
+                        }
+    
+                        app.all("*", function (req, res, next) {
+                            res.send(`"Testing my server"`);
+                        });
+    
+                        app.listen(configurations.server.port, configurations.server.host, function () {
+                            console.log(`Server listening at ` + configurations.server.port);
+                            resolve(app);
+                        });
+    
+                    }.bind(app), function (err) {
+                        reject(err);
+                    }).catch(function (error) {
+                        console.log(error);
                     });
-
-                    app.listen(configurations.server.port, configurations.server.host, function () {
-                        console.log(`Server listening at ` + configurations.server.port);
-                        resolve(app);
-                    });
-
+    
                 }.bind(app), function (err) {
                     reject(err);
                 }).catch(function (error) {
-                    console.log(error);
+                    reject(error);
                 });
 
-            }.bind(app), function (err) {
-                reject(err);
-            }).catch(function (error) {
-                reject(error);
+            }).catch(function(error) {
+
             });
 
         } catch (e) {

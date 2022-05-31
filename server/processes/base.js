@@ -1,3 +1,11 @@
+/**
+ * CGIJS Process Script for executing processing
+ * 
+ * Start Process for provided config
+ * [TODO] Check alternatives of Code
+ * 
+ */
+
 
 function base(config) {
     if (!config) {

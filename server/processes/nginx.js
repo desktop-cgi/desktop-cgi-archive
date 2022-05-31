@@ -1,4 +1,13 @@
+/**
+ * NGINX server script
+ * 
+ * Start NGINX Database using .bat / .sh[todo] file
+ * [TODO] Check alternatives of Code
+ * 
+ */
 
+
+'use strict';
 
 let conf = {
     name: "nginxprocess",

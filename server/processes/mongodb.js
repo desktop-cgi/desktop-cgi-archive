@@ -1,4 +1,13 @@
+/**
+ * MongoDB Database script
+ * 
+ * Start MongoDB Database using .bat / .sh[todo] file
+ * [TODO] Check alternatives of Code
+ * 
+ */
 
+
+ 'use strict';
 
 let conf = {
     name: "mongodprocess",
