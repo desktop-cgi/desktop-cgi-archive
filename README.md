@@ -27,7 +27,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 * Check and modify `server/config/config-**template**.json` file for your application's configuration needs
 * Check if your electron app runs using command `npm run electron`
 * Run command `npm run electronbuild` [TODO - Simplify]
-* [Demo] A demo app is 
+* [Demo] A demo app is placed in the folder [github\desktop-cgi\www\demoapp](https://github.com/ganeshkbhat/desktop-cgi/www/demoapp)
 
 
 # Functionality Details
