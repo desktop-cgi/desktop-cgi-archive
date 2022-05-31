@@ -5,7 +5,7 @@ Desktop-CGI is a desktop executable app that can be created from any CGI files o
 `[Funding Invited]`
 
 
-![Desktop CGI](https://github.com/ganeshkbhat/desktop-cgi/blob/master/desktop-cgi.jpeg)
+![Desktop CGI](./desktop-cgi.jpeg)
 
 
 # Highlights
