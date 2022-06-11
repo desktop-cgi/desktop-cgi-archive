@@ -112,6 +112,7 @@ Check `index.js` and `server` folder for demo code
 # Status
 
     In active development
+You can track development status here [desktop-cgi/projects](https://github.com/orgs/desktop-cgi/projects/2)
 
 # Open Unmoderated Communities for Discussions
 
