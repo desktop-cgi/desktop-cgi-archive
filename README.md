@@ -114,7 +114,7 @@ Check `index.js` and `server` folder for demo code
     In active development
 
 
-# Open Unmoderated Communities for Discussions
+# Open Unmoderated Communities
 
 [Facebook](https://www.facebook.com/groups/732258757997109), [Quora](https://desktopcgi.quora.com/)
 
