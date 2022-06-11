@@ -1,3 +1,64 @@
+TODO - DESKTOP-CGI
+
+- Features
+    - [] MVP - Create a packageable application [TODO]
+    - [] MVP - Create a installable application [TODO]
+    - [] Automate installation executable creation for all OS [TODO]
+        - [] Allowance of path definition for binary folder selection for automation [TODO]
+    - [] 
+
+- TODO
+    - [] MVP Application [TODO]
+    - [] CGI file serve [TODO]
+    - [] Proxy serve [TODO]
+    - [] Manage Processes [TODO]
+    - [] Web Server Supported
+            - [] HTTPD [TODO]
+            - [] Nginx [TODO]
+            - [] Tomcat [TODO]
+            - [] Jetty [TODO]
+            - [] Mongoose [TODO]
+            - [] Putty [TODO]
+    - [] Databases Support
+            - [] Sqlite [TODO]
+            - [] MySQL [TODO]
+            - [] Redis [TODO]
+            - [] MongoDB [TODO]
+            - [] PgSQL [TODO]
+            - [] Oracle [TODO]
+            - [] CouchDB [TODO]
+    - [] Protocols Support
+            - [] http [TODO]
+            - [] https [TODO]
+            - [] tcp [TODO]
+            - [] udp [TODO]
+            - [] websocket [TODO]
+            - [] gRPC [TODO]
+            - [] ftp [TODO]
+            - [] sockets [TODO]
+            - [] ssh [TODO]
+            - [] Architecture Pattern change (Message/ Event Pattern support in proxy module which is currently not differentiated) [TODO]
+    - [] Automation of Installable executable for Win, Linux, Mac. Selection of distros to be done [TODO]
+    - [] Manage Processes UI [TODO]
+    - [] Manage Monitoring UI [TODO]
+    - [] Easy support for different frameworks using middlewares for file
+    - [] Easy support for different frameworks using middlewares for proxy
+    - [] 
+
+- Community and Adoption
+    - Community
+        - [] Discord, Stackoverflow, Twitter, Github. Consider other modes of communication (Choose Moderated Official social community) [TODO]
+        - [] Wiki (Basic links to main docs site - https://desktop-cgi.github.io) [TODO]
+        - []  
+    - Contributors and Developers
+        - [] Issue Templates [TODO]
+        - [] Project Planning (Preferably open) [TODO]
+            - [] Feature planning, addition, feedback, and management [TODO]
+        - [] 
+    - Adoption
+        - []
+
+
 - Add Webcontent loading to electronjs
     - https://www.electronjs.org/docs/api/web-contents
 - Add Deda service manager to UI project (https://github.com/DEDAjs/deda-service-manager.git) This is temporary.
