@@ -114,6 +114,16 @@ Check `index.js` and `server` folder for demo code
     In active development
 
 
+# Open Unmoderated Communities for Discussions
+
+    [Facebook](https://www.facebook.com/groups/732258757997109), [Quora](https://desktopcgi.quora.com/)
+
+
+# Issues and Contributions
+
+    [Raise an Issue or Contribute](https://github.com/desktop-cgi/desktop-cgi/issues). Active Contributors are invited.
+
+
 # Todo
 
 Check file - [.todo](./.todo)
