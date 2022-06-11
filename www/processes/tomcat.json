@@ -1,0 +1,33 @@
+{
+    "name": "",
+    "exe": "",
+    "type": "executable",
+    "os": "",
+    "cmds": {
+        "start": { "exe": "", "usage": "", "args": [""] },
+        "stop": { "exe": "", "usage": "", "args": [""] },
+        "reload": { "exe": "", "usage": "", "args": [""] },
+        "startbatwin32": { "exe": "", "usage": "", "args": [] },
+        "stopbatwin32": { "exe": "", "usage": "", "args": [] },
+        "startbatWindows_NT": { "exe": "", "usage": "", "args": [] },
+        "stopbatWindows_NT": { "exe": "", "usage": "", "args": [] },
+        "startbatlinux": { "exe": "", "usage": "", "args": [] },
+        "stopbatlinux": { "exe": "", "usage": "", "args": [] },
+        "startbatmac": { "exe": "", "usage": "", "args": [] },
+        "stopbatmac": { "exe": "", "usage": "", "args": [] }
+    },
+    "options": {
+        "stdio": "inherit",
+        "shell": false
+    },
+    "other": {
+        "paths": {
+            "conf": "",
+            "exe": ""
+        },
+        "env": "",
+        "setprocess": true,
+        "executetype": "exec",
+        "command": ""
+    }
+}

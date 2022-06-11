@@ -25,23 +25,18 @@
         "appData": "/data/app"
     },
     "processes": {
-        "nginx": {
-            "type": "nginx"
-        },
-        "httpd": {
-            "type": "httpd"
-        },
-        "mysql": {},
-        "tomcat": {
-            "type": "tomcat"
-        },
-        "configpath": {
-            "path": "/www/processes/ls.json"
-        },
         "supportedprocess": {
             "type": "mongodb"
         },
-        "pgsql": {},
+        "mysql": {
+            "config": "/www/processes/mysql.json"
+        },
+        "jsfilepath": {
+            "path": "/www/processes/ls.js"
+        },
+        "configpath": {
+            "config": "/www/processes/ls.json"
+        },
         "mongodb": {
             "name": "mongodprocess",
             "exe": "mongod",
@@ -70,42 +65,42 @@
                     ]
                 },
                 "startbatwin32": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_start.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_start.sh",
                     "usage": "",
                     "args": []
                 },
                 "stopbatwin32": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_taskkill.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_taskkill.sh",
                     "usage": "",
                     "args": []
                 },
                 "startbatWindows_NT": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_start.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_start.sh",
                     "usage": "",
                     "args": []
                 },
                 "stopbatWindows_NT": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_taskkill.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\win_taskkill.sh",
                     "usage": "",
                     "args": []
                 },
                 "startbatlinux": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\linux_start.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\linux_start.sh",
                     "usage": "",
                     "args": []
                 },
                 "stopbatlinux": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\linux_taskkill.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\linux_taskkill.sh",
                     "usage": "",
                     "args": []
                 },
                 "startbatmac": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\mac_start.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\mac_start.sh",
                     "usage": "",
                     "args": []
                 },
                 "stopbatmac": {
-                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\mac_taskkill.bat",
+                    "exe": "..\\..\\binaries\\binscripts\\db-mongo\\mac_taskkill.sh",
                     "usage": "",
                     "args": []
                 }
@@ -124,6 +119,18 @@
                 "executetype": "exec",
                 "command": ""
             }
+        },
+        "httpd": {
+            "type": "httpd"
+        },
+        "tomcat": {
+            "type": "tomcat"
+        },
+        "nginx": {
+            "type": "nginx"
+        },
+        "pgsql": {
+            "type": "pgsql"
         }
     },
     "proxies": {

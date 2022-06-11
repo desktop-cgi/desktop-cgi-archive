@@ -2,7 +2,7 @@
     "name": "",
     "exe": "",
     "type": "executable",
-    "os": "win32",
+    "os": "",
     "cmds": {
         "start": { "exe": "", "usage": "", "args": [""] },
         "stop": { "exe": "", "usage": "", "args": [""] },

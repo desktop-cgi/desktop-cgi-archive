@@ -1,4 +1,5 @@
-{
+
+let conf = {
     "name": "lsops",
     "exe": "ls",
     "type": "executable",
@@ -21,3 +22,8 @@
         "command": "start"
     }
 }
+
+/**
+ * Use in Script Config.
+ */
+require("../../server/processes/base")(conf);

@@ -1,10 +1,10 @@
 {
-    "name": "lsops",
-    "exe": "ls",
-    "type": "executable",
+    "name": "processthread",
+    "type": "file",
     "os": "",
+    "exe": "",
     "cmds": {
-        "start": { "exe": "", "usage": "ls", "args": [""] }
+        "run": { "exe": "", "usage": "", "args": [] }
     },
     "options": {
         "stdio": "inherit",
@@ -17,7 +17,7 @@
         },
         "env": "",
         "setprocess": true,
-        "executetype": "exec",
-        "command": "start"
+        "executetype": "spawn",
+        "command": "run"
     }
 }

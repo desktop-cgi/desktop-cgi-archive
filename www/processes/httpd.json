@@ -1,0 +1,33 @@
+{
+    "name": "apache2process",
+    "type": "executable",
+    "os": "win32",
+    "exe": "httpd",
+    "cmds": {
+        "start": { "exe": "httpd", "usage": "", "args": ["-k start"] },
+        "stop": { "exe": "httpd", "usage": "", "args": ["-k stop"] },
+        "reload": { "exe": "httpd", "usage": "", "args": ["-k restart"] },
+        "startbatwin32": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_start.bat", "usage": "", "args": [] },
+        "stopbatwin32": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_taskkill.bat", "usage": "", "args": [] },
+        "startbatWindows_NT": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_start.bat", "usage": "", "args": [] },
+        "stopbatWindows_NT": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_taskkill.bat", "usage": "", "args": [] },
+        "startbatlinux": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\linux_start.bat", "usage": "", "args": [] },
+        "stopbatlinux": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\linux_taskkill.bat", "usage": "", "args": [] },
+        "startbatmac": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\mac_start.bat", "usage": "", "args": [] },
+        "stopbatmac": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\mac_taskkill.bat", "usage": "", "args": [] }
+    },
+    "options": {
+        "stdio": "inherit",
+        "shell": true
+    },
+    "other": {
+        "paths": {
+            "conf": "",
+            "exe": ""
+        },
+        "env": "",
+        "setprocess": true,
+        "executetype": "exec",
+        "command": "startbatwin32"
+    }
+}

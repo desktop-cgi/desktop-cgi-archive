@@ -25,23 +25,36 @@
         "appData": "/data/app"
     },
     "processes": {
+        "jspath": {
+            "cgiprocess": "../www/processes/ls.js"
+        },
+        "jsprocesspath": {
+            "cgiprocess": "../www/processes/ls.js"
+        },
+        "configpath": {
+            "config": "/www/processes/ls.json"
+        },
         "nginx": {
             "type": "nginx"
         },
         "httpd": {
             "type": "httpd"
         },
-        "mysql": {},
+        "mysql": {
+            "config": "/www/processes/mysql.json"
+        },
         "tomcat": {
             "type": "tomcat"
-        },
-        "configpath": {
-            "path": "/www/processes/ls.json"
         },
         "supportedprocess": {
             "type": "mongodb"
         },
-        "pgsql": {},
+        "pgsql": {
+            "type": "pgsql"
+        },
+        "testscript": {
+            "path": "/www/processes/process-script.js"
+        },
         "mongodb": {
             "name": "mongodprocess",
             "exe": "mongod",

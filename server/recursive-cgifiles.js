@@ -24,7 +24,7 @@ module.exports = () => {
                         ip: req.ip,
                         headers: req.headers
                     }
-                    
+
                     cgi.serve(type, requestObject, exeOptions).then(function (result) {
                         result.statusCode = (!result.statusCode) ? 200 : result.statusCode;
                         res.status(result.statusCode).send(result.response);
@@ -37,7 +37,7 @@ module.exports = () => {
 
             var app = express();
             let configurations;
-            
+
             if (ostype == "win32" || ostype === "Windows_NT") {
                 configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-win_demo.json')));
             } else if (ostype == "linux") {
@@ -45,7 +45,7 @@ module.exports = () => {
             } else if (ostype == "mac") {
                 configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
             }
-            
+
             let cgifiles = Object.keys(configurations.cgifiles);
 
             for (let i = 0; i < cgifiles.length; i++) {
