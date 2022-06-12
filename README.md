@@ -117,7 +117,7 @@ You can track development status here [desktop-cgi/projects](https://github.com/
 
 # Open Unmoderated Communities
 
-[Facebook](https://www.facebook.com/groups/732258757997109), [Quora](https://desktopcgi.quora.com/)
+[Facebook](https://www.facebook.com/groups/732258757997109), [Quora](https://desktopcgi.quora.com/), [Github Discussion](https://github.com/desktop-cgi/desktop-cgi/discussions)
 
 
 # Issues and Contributions
@@ -135,6 +135,7 @@ Check file - [.todo](./.todo)
 ##### Other Packing Solutions you can use
 
 - References: [Electron Application Distribution](https://www.electronjs.org/docs/tutorial/application-distribution)
+
 
 # License
 
