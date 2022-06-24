@@ -26,9 +26,9 @@ if (ostype == "win32" || ostype === "Windows_NT") {
 }
 
 let framework = require((!!configurations.framework) ? configurations.framework : "electron");
-let frameworkBridge = configurations.framework + "-bridge";
+let frameworkBridge = "desktopcgi-" + configurations.framework + "-bridge";
 if (!!configurations.menus) {
     menus = path.join(dirname, configurations.menus);
 }
 
-require("@desktop-cgi/" + configurations.framework).electron(dirname, framework, frameworkBridge, menus, configurations, options);
+require("desktopcgi-" + configurations.framework).electron(dirname, framework, frameworkBridge, menus, configurations, options);

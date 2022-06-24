@@ -15,7 +15,7 @@
     "electronbuild": "echo \"TODO: Sponsor this project\""
   },
   "dependencies": {
-    "desktopcgi-electron": "^0.0.1",
+    "desktopcgi-electron": "^0.0.3",
     "log4js": "^6.5.2",
     "node-ipc": "^11.1.0",
     "winston": "^3.7.2",
