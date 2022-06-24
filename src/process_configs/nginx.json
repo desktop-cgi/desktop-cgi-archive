@@ -10,7 +10,7 @@
         "quit": { "exe": "nginx -s quit", "usage": "", "args": [] },
         "startbatwin32": { "exe": "..\\..\\binaries\\binscripts\\server-nginx\\win32_start.bat", "usage": "", "args": [] },
         "stopbatwin32": { "exe": "..\\..\\binaries\\binscripts\\server-nginx\\win32_taskkill.bat", "usage": "", "args": [] },
-        "startbatWindows_NT": { "exe": "..\\..\\binaries\\binscripts\\server-nginx\\win32_start.bat", "usage": "", "args": [] },
+        "startbatWindows_NT": { "exe": "C:\\Users\\ganes\\Documents\\projects\\github\\workspace-cgi\\packages\\desktop-cgi\\binaries\\binscripts\\server-nginx\\win32_start.bat", "usage": "", "args": [] },
         "stopbatWindows_NT": { "exe": "..\\..\\binaries\\binscripts\\server-nginx\\win32_taskkill.bat", "usage": "", "args": [] },
         "startbatlinux": { "exe": "..\\..\\binaries\\binscripts\\server-nginx\\linux_start.bat", "usage": "", "args": [] },
         "stopbatlinux": { "exe": "..\\..\\binaries\\binscripts\\server-nginx\\linux_taskkill.bat", "usage": "", "args": [] },
@@ -29,6 +29,6 @@
         "env": "",
         "setprocess": true,
         "executetype": "exec",
-        "command": ""
+        "command": "startbatWindows_NT"
     }
 }

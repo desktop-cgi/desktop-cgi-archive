@@ -7,7 +7,7 @@
         "start": { "exe": "httpd", "usage": "", "args": ["-k start"] },
         "stop": { "exe": "httpd", "usage": "", "args": ["-k stop"] },
         "reload": { "exe": "httpd", "usage": "", "args": ["-k restart"] },
-        "startbatwin32": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_start.bat", "usage": "", "args": [] },
+        "startbatwin32": { "exe": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\github\\workspace-cgi\\packages\\desktop-cgi\\binaries\\binscripts\\server-nginx\\win32_start.bat", "usage": "", "args": [] },
         "stopbatwin32": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_taskkill.bat", "usage": "", "args": [] },
         "startbatWindows_NT": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_start.bat", "usage": "", "args": [] },
         "stopbatWindows_NT": { "exe": "..\\..\\binaries\\binscripts\\server-httpd\\win32_taskkill.bat", "usage": "", "args": [] },

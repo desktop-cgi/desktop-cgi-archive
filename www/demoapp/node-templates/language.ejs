@@ -1893,7 +1893,7 @@
                             -->
                             <div>
                                 <ul id="buttons01" class="style1 buttons">
-                                    <% for (let i=0; i < data.links.length/2; i=i + 2) { %>
+                                    <% for (let i=0; i < data.links.length/2; i=i + 1) { %>
                                         <% if( data.links[i].language === data.language ) { %>
                                             <li><a href="<%= data.links[i].path %>" class="button n01"><svg>
                                                         <use xlink:href="#icon-9e2"></use>
@@ -1907,13 +1907,14 @@
                             </div>
                             <div>
                                 <ul id="buttons02" class="style1 buttons">
-                                    <% for (let i=data.links.length/2; i < data.links.length; i=i + 2) { %>
+                                    <% for (let i=data.links.length/2; i < data.links.length; i=i + 1) { %>
                                         <% if( data.links[i].language === data.language ) { %>
                                             <li><a href="<%= data.links[i].path %>" class="button n01"><svg>
                                                         <use xlink:href="#icon-9e2"></use>
                                                     </svg><span class="label">
                                                         <%= data.links[i].label %>
-                                                    </span></a></li>
+                                                    </span></a>
+                                            </li>
                                         <% } else{ %>
                                         <% } %>
                                     <% } %>
@@ -1942,7 +1943,8 @@
                 </div>
                 <div id="credits01" class="icc-credits"><span><a href="http://localhost:3001/">Desktop CGI</a></span>
                 </div>
-                <div id="credits02" class=""><span><a href="https://carrd.co/build?ref=auto">Made with Carrd</a></span>
+                <div id="credits02" class=""><span><a target="_blank" href="https://carrd.co/build?ref=auto">Made with
+                            Carrd</a></span>
                 </div>
             </div>
         </div>

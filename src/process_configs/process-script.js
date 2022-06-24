@@ -26,4 +26,4 @@ let conf = {
 /**
  * Use in Script Config.
  */
-require("../../server/processes/base")(conf);
+module.exports = require("../../../server/src/processes/base");

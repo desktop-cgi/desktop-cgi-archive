@@ -1,15 +1,15 @@
 {
+    "framework": "electron",
+    "menus": "/src/native/menu.js",
     "server": {
+        "app": "demo",
         "host": "localhost",
         "port": 3001,
-        "app": "demo",
-        "redirect_home": "/proxyone",
-        "binaries": "/binaries",
-        "options": {
-            "viewengine": "ejs",
-            "views": "/www/demoapp/node-templates",
-            "assets": "/www/demoapp/ui/assets"
-        }
+        "ssl": {
+            "crt": "",
+            "pem": ""
+        },
+        "redirect_home": "/proxyone"
     },
     "session": {
         "secret": "1234567890"
@@ -22,7 +22,14 @@
         "logs": "/data/logs",
         "recent": "/data/recent",
         "crashDump": "/data/crash",
-        "appData": "/data/app"
+        "appData": "/data/app",
+        "binaries": "/binaries",
+        "config_folder": "/www/configs",
+        "options": {
+            "viewengine": "ejs",
+            "views": "/www/demoapp/node-templates",
+            "assets": "/www/demoapp/ui/assets"
+        }
     },
     "processes": {
         "jspath": {
@@ -73,104 +80,199 @@
         "wordpress": {
             "label": "PHP Wordpress",
             "identity": "phpwordpress",
-            "path": "/wp",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
+            "path": "/info",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "ecommerce": {
             "label": "PHP eCommerce",
             "identity": "phpecommerce",
             "path": "/ecom",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "phprestapi": {
             "label": "Rest API",
             "identity": "phprestapi",
             "path": "/phprest",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "drupal": {
             "label": "Drupal",
             "identity": "phpdrupal",
             "path": "/drupal",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "phpinfo": {
-            "label": "PHP File Demo",
+            "label": "PHP File Demo One",
             "identity": "phpinfo",
             "path": "/phpinfo/info",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": "",
-            "config_path": "",
-            "host": "localhost",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "phpappone": {
-            "label": "PHP File Demo",
+            "label": "PHP File Demo Two",
             "identity": "filedemo",
             "path": "/phpc",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": "",
-            "config_path": "",
-            "host": "127.0.0.1",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "phpapptwo": {
-            "label": "",
+            "label": "PHP App Two",
             "identity": "",
             "path": "/phpp",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": {
-                "bin_path": "",
-                "useDefault": false
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
             },
-            "config_path": "",
-            "host": "127.0.0.1",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         },
         "phpappthree": {
-            "label": "",
+            "label": "PHP App Three",
             "identity": "",
             "path": "/phppp",
-            "lang_type": "php",
-            "web_root_folder": "./www/demoapp/files/php",
-            "bin": {
-                "bin_path": "",
-                "useDefault": true
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
             },
-            "config_path": "",
-            "host": "127.0.0.1",
-            "port": 3001,
-            "cmd_options": {}
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
         }
+    },
+    "loggers": {
+        "default": {},
+        "file": {},
+        "https": {}
     }
 }

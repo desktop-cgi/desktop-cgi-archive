@@ -158,3 +158,6 @@ docker-compose.yaml
 # https://stackoverflow.com/questions/36327862/bitbucket-create-repository-and-sub-modules
 
 # www/deda-service-manager
+
+# quickcheck files
+server/processes/xc.js
