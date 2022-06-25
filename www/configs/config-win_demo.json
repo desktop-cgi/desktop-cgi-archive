@@ -1,6 +1,9 @@
 {
     "server": {
         "app": "demo",
+        "loader": "server",
+        "file": "",
+        "protocol": "http",
         "host": "localhost",
         "port": 3001,
         "ssl": {
@@ -26,6 +29,10 @@
         "framework": "electron",
         "frameworkBridge": "express",
         "menus": "/src/native/electron_menu",
+        "allowRendererProcessReuse": true,
+        "ignoreCertificateErrors": false,
+        "disableHardwareAcceleration": false,
+        "allowInsecureLocalhost": false,
         "options": {
             "viewengine": "ejs",
             "views": "/www/demoapp/node-templates",

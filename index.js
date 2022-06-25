@@ -40,22 +40,53 @@ if (ostype == "win32" || ostype === "Windows_NT") {
  * 
 */
 
-// electron.app.allowRendererProcessReuse = true;
+// // USAGE:
+// // Allows Render Process ReUse in Electron
+if (!!config.app.allowRendererProcessReuse) {
+    // electron.app.allowRendererProcessReuse = true;
+    // electron.app.allowRendererProcessReuse = config.app.allowRendererProcessReuse;
+}
 
 // // USAGE:
 // // Ignores Certificate errors in Electron
-// electron.app.commandLine.appendSwitch('ignore-certificate-errors');
+if (!!config.app.ignoreCertificateErrors) {
+    electron.app.commandLine.appendSwitch('ignore-certificate-errors');
+}
 
 // // USAGE:
 // // Disable Hardware acceleration if you get the error:
 // // [14880:1207/145651.085:ERROR:gpu_init.cc(457)] Passthrough is not supported, GL is disabled, ANGLE is
 // // https://stackoverflow.com/questions/70267992/win10-electron-error-passthrough-is-not-supported-gl-is-disabled-angle-is
-// electron.app.disableHardwareAcceleration()
+//
+if (!!config.app.disableHardwareAcceleration) {
+    electron.app.disableHardwareAcceleration()
+}
 
-// electron.app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
-// // global.appRoot = process.cwd();
+// // USAGE:
+// // Allor or disallow Insecure localhost
+if (!!config.app.allowInsecureLocalhost) {
+    // electron.app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
+    electron.app.commandLine.appendSwitch('allow-insecure-localhost', config.app.allowInsecureLocalhost);
+}
+
+// // Provide the app root for the executable
+// global.appRoot = process.cwd();
 // global.appRoot = dirname;
 
+
+/**
+ *
+ * createWindow
+ * 
+ * Logic for creating the electron window
+ *
+ * @param {*} dirname
+ * 
+ * @param {*} config
+ * 
+ * @param {*} options
+ * 
+ */
 async function createWindow(dirname, config, options) {
 
     console.log("Desktop-CGI-Server: index.js: ready Event invoked #001");
@@ -63,9 +94,9 @@ async function createWindow(dirname, config, options) {
     const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
 
     let appConfig = config.app;
-    let frameworkDefinition = appConfig.framework;
-    let bridge = appConfig.frameworkBridge;
+    // let frameworkDefinition = appConfig.framework;
     // let frameworkObject = require((!!frameworkDefinition) ? frameworkDefinition : "electron");
+    let bridge = appConfig.frameworkBridge;
     let frameworkBridge = "desktopcgi-" + bridge + "-bridge";
     menus = (!!appConfig.menus) ? path.join(dirname, appConfig.menus) : menus;
 
@@ -92,8 +123,17 @@ async function createWindow(dirname, config, options) {
         }
     });
 
-    // win.loadFile('C:/Users/ganes/Documents/projects/github/workspace-cgi/packages/desktop-cgi/www/demoapp/html/index.html');
-    win.loadURL('http://localhost:3001');
+    if (config.server.loader === "file") {
+        // // Load a HTML File
+        // win.loadFile('C:/Users/ganes/Documents/projects/github/workspace-cgi/packages/desktop-cgi/www/demoapp/html/index.html');
+    } else if (config.server.loader === "server") {
+        // // Load a local server
+        win.loadURL('http://' + config.server.host + ':' + config.server.port);
+    } else {
+        // // Load a local server
+        win.loadURL('http://' + config.server.host + ':' + config.server.port);
+    }
+
     if (menus === "default") {
         require("./src/native/electron_menu");
     } else {
