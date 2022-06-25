@@ -1,6 +1,4 @@
 {
-    "framework": "electron",
-    "menus": "/src/native/menu.js",
     "server": {
         "app": "demo",
         "host": "localhost",
@@ -25,6 +23,9 @@
         "appData": "/data/app",
         "binaries": "/binaries",
         "config_folder": "/www/configs",
+        "framework": "electron",
+        "frameworkBridge": "express",
+        "menus": "/src/native/menu",
         "options": {
             "viewengine": "ejs",
             "views": "/www/demoapp/node-templates",

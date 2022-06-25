@@ -156,6 +156,5 @@ if (process.platform === 'darwin') {
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
-module.exports = {
-    Menu
-}
+module.exports = Menu
+
