@@ -20,6 +20,7 @@
     "desktopcgi-electron": "file:../server",
     "desktopcgi-express-bridge": "file:../express-bridge",
     "electron": "18.3.0",
+    "electron-notifications": "^1.0.0",
     "electron-unhandled": "^4.0.1",
     "express": "^4.18.1",
     "log4js": "^6.5.2",

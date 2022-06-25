@@ -34,6 +34,9 @@
         "disableHardwareAcceleration": false,
         "allowInsecureLocalhost": false,
         "appRoot": "",
+        "tray": true,
+        "trayIcon": "icon@2x.png",
+        "trayTooltip": "DesktopCGI app",
         "options": {
             "viewengine": "ejs",
             "views": "/www/demoapp/node-templates",

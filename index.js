@@ -5,24 +5,36 @@
 //  * 
 //  */
 
+'use strict';
+
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const electron = require('electron');
-const { app, BrowserWindow, remote, screen } = require('electron');
+const { app, BrowserWindow, ipcMain, remote, screen } = require('electron');
 // let {getCurrentWindow, globalShortcut} = remote;
+const notifier = require('electron-notifications');
 const ut = require("./src/utils");
+let { Tray, notes, displayNoteToTray, addNoteToTrayMenu } = require("./src/native/electron_tray");
+
+let Menu = electron.Menu;
+
+let trayIcon = null;
+let menus = "default";
+let config_folder = "/www/configs";
 
 let ostype = os.type();
 let dirname = __dirname;
-let menus = "default";
 
-let config_folder = "/www/configs";
 let options = {
     "logger": (loggerFramework) => { }
 }
 
-let config, Menu;
+ipcMain.on('monitorTerm', (event, term) => {
+
+});
+
+let config;
 if (ostype == "win32" || ostype === "Windows_NT") {
     config = JSON.parse(fs.readFileSync(path.join(dirname, config_folder, '/config-win_demo.json')));
 } else if (ostype == "linux") {
@@ -116,6 +128,10 @@ async function createWindow(dirname, config, options) {
     let result = await require("./src/index")(dirname, config, options);
 
     const win = new electron.BrowserWindow({
+        // fullscreen: true,
+        fullscreenable: false,
+        // fullscreenWindowTitle: false,
+        // useContentSize: true,
         width: width,
         height: height,
         backgroundColor: '#FFF',
@@ -136,9 +152,9 @@ async function createWindow(dirname, config, options) {
     }
 
     if (menus === "default") {
-        require("./src/native/electron_menu");
+        Menu = require("./src/native/electron_menu");
     } else {
-        require(menus);
+        Menu = require(menus);
     }
 
     win.on('closed', function (win) {
@@ -160,9 +176,21 @@ async function createWindow(dirname, config, options) {
     // Web Content Loading
     // https://www.electronjs.org/docs/api/web-contents
 
+    if (!!applicationConfiguration.tray && !!applicationConfiguration.trayIcon) {
+
+        trayIcon = new Tray(applicationConfiguration.trayIcon).catch(function (e) { console.log("Desktop-CGI-Server: index.js: Error in tray icon #007 ", e.toString()) });
+        let contextMenu = Menu.buildFromTemplate(notes.map(addNoteToTrayMenu));
+        trayIcon.setToolTip(!!applicationConfiguration.trayTooltip ? applicationConfiguration.trayTooltip : "DesktopCGI Application");
+        trayIcon.setContextMenu(contextMenu);
+    }
+
+    win.webContents.on('dom-ready', () => {
+        displayNoteToTray(notes[0], win);
+    });
+
 }
 
-console.log("Desktop-CGI-Server: index.js: setting app paths #007");
+console.log("Desktop-CGI-Server: index.js: setting app paths #008");
 
 // // electron.app.setPath('temp', process.cwd() + applicationConfiguration.temp);
 // // electron.app.setPath('cache', process.cwd() + applicationConfiguration.cache);
@@ -207,11 +235,11 @@ electron.app.setPath('appData', path.join(dirname, applicationConfiguration.appD
 // // 
 
 electron.app.whenReady().then(function () {
-    console.log("Desktop-CGI-Server: index.js: app.whenReady Event invoked #008");
+    console.log("Desktop-CGI-Server: index.js: app.whenReady Event invoked #009");
     createWindow(dirname, config, options);
 
     electron.app.on('activate', () => {
-        console.log("Desktop-CGI-Server: index.js: app.activate Event invoked #009");
+        console.log("Desktop-CGI-Server: index.js: app.activate Event invoked #010");
         if (win === null) {
             if (electron.BrowserWindow.getAllWindows().length === 0) createWindow();
         }
@@ -219,7 +247,7 @@ electron.app.whenReady().then(function () {
 }.bind(null, config, options));
 
 electron.app.on('window-all-closed', () => {
-    console.log("Desktop-CGI-Server: index.js: app.window-all-closed Event invoked #010");
+    console.log("Desktop-CGI-Server: index.js: app.window-all-closed Event invoked #011");
     if (process.platform !== 'darwin') {
         electron.app.quit();
         electron.apps = {};
