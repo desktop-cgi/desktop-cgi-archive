@@ -22,13 +22,22 @@ let options = {
     "logger": (loggerFramework) => { }
 }
 
-let config;
+let config, Menu;
 if (ostype == "win32" || ostype === "Windows_NT") {
     config = JSON.parse(fs.readFileSync(path.join(dirname, config_folder, '/config-win_demo.json')));
 } else if (ostype == "linux") {
     config = JSON.parse(fs.readFileSync(path.join(dirname, config_folder, '/config-linux_demo.json')));
 } else if (ostype == "mac") {
     config = JSON.parse(fs.readFileSync(path.join(dirname, config_folder, '/config-mac_demo.json')));
+}
+
+let applicationConfiguration = config.app;
+// let frameworkDefinition = applicationConfiguration.framework;
+let bridge = applicationConfiguration.frameworkBridge;
+let frameworkBridge = "desktopcgi-" + bridge + "-bridge";
+
+if (!frameworkBridge) {
+    throw Error("Desktop-CGI-Server: index.js: Framework or Framework Bridge Path not provided #002");
 }
 
 /** 
@@ -42,14 +51,14 @@ if (ostype == "win32" || ostype === "Windows_NT") {
 
 // // USAGE:
 // // Allows Render Process ReUse in Electron
-if (!!config.app.allowRendererProcessReuse) {
+if (!!applicationConfiguration.allowRendererProcessReuse) {
     // electron.app.allowRendererProcessReuse = true;
-    // electron.app.allowRendererProcessReuse = config.app.allowRendererProcessReuse;
+    // electron.app.allowRendererProcessReuse = applicationConfiguration.allowRendererProcessReuse;
 }
 
 // // USAGE:
 // // Ignores Certificate errors in Electron
-if (!!config.app.ignoreCertificateErrors) {
+if (!!applicationConfiguration.ignoreCertificateErrors) {
     electron.app.commandLine.appendSwitch('ignore-certificate-errors');
 }
 
@@ -58,21 +67,23 @@ if (!!config.app.ignoreCertificateErrors) {
 // // [14880:1207/145651.085:ERROR:gpu_init.cc(457)] Passthrough is not supported, GL is disabled, ANGLE is
 // // https://stackoverflow.com/questions/70267992/win10-electron-error-passthrough-is-not-supported-gl-is-disabled-angle-is
 //
-if (!!config.app.disableHardwareAcceleration) {
+if (!!applicationConfiguration.disableHardwareAcceleration) {
     electron.app.disableHardwareAcceleration()
 }
 
 // // USAGE:
 // // Allor or disallow Insecure localhost
-if (!!config.app.allowInsecureLocalhost) {
+if (!!applicationConfiguration.allowInsecureLocalhost) {
     // electron.app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
-    electron.app.commandLine.appendSwitch('allow-insecure-localhost', config.app.allowInsecureLocalhost);
+    electron.app.commandLine.appendSwitch('allow-insecure-localhost', applicationConfiguration.allowInsecureLocalhost);
 }
 
 // // Provide the app root for the executable
 // global.appRoot = process.cwd();
 // global.appRoot = dirname;
-
+if (!!applicationConfiguration.appRoot && applicationConfiguration.appRoot !== "") {
+    global.appRoot = applicationConfiguration.appRoot;
+}
 
 /**
  *
@@ -92,17 +103,8 @@ async function createWindow(dirname, config, options) {
     console.log("Desktop-CGI-Server: index.js: ready Event invoked #001");
 
     const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
-
-    let appConfig = config.app;
-    // let frameworkDefinition = appConfig.framework;
     // let frameworkObject = require((!!frameworkDefinition) ? frameworkDefinition : "electron");
-    let bridge = appConfig.frameworkBridge;
-    let frameworkBridge = "desktopcgi-" + bridge + "-bridge";
-    menus = (!!appConfig.menus) ? path.join(dirname, appConfig.menus) : menus;
-
-    if (!frameworkBridge) {
-        throw Error("Desktop-CGI-Server: index.js: Framework or Framework Bridge Path not provided #002");
-    }
+    menus = (!!applicationConfiguration.menus) ? path.join(dirname, applicationConfiguration.menus) : menus;
 
     console.log("Desktop-CGI-Server: index.js: Desktop-CGI App started: #003");
 
@@ -123,14 +125,13 @@ async function createWindow(dirname, config, options) {
         }
     });
 
+    // // Loader decides whether a file is loaded using loadFile or a server is loaded using loadURL
+    // // Options: file, server
     if (config.server.loader === "file") {
-        // // Load a HTML File
         // win.loadFile('C:/Users/ganes/Documents/projects/github/workspace-cgi/packages/desktop-cgi/www/demoapp/html/index.html');
     } else if (config.server.loader === "server") {
-        // // Load a local server
         win.loadURL('http://' + config.server.host + ':' + config.server.port);
     } else {
-        // // Load a local server
         win.loadURL('http://' + config.server.host + ':' + config.server.port);
     }
 
@@ -141,18 +142,18 @@ async function createWindow(dirname, config, options) {
     }
 
     win.on('closed', function (win) {
-        console.log("Desktop-CGI-Server: index.js: closed Event invoked #004");
+        console.log("Desktop-CGI-Server: index.js: browserWindow.closed Event invoked #004");
         win = null;
         electron.apps = {};
     }.bind(null, electron));
 
     win.once('ready-to-show', () => {
-        console.log("Desktop-CGI-Server: index.js: ready-to-show Event invoked #005");
+        console.log("Desktop-CGI-Server: index.js: browserWindow.ready-to-show Event invoked #005");
         win.show();
     });
 
     win.webContents.on("did-fail-load", function () {
-        console.log("Desktop-CGI-Server: index.js: did-fail-load Event invoked #006");
+        console.log("Desktop-CGI-Server: index.js: browserWindow.webContents.did-fail-load Event invoked #006");
         win.loadURL('http://localhost:' + config.server.port + "/err");
     }.bind(win));
 
@@ -163,27 +164,27 @@ async function createWindow(dirname, config, options) {
 
 console.log("Desktop-CGI-Server: index.js: setting app paths #007");
 
-// // electron.app.setPath('temp', process.cwd() + config.app.temp);
-// // electron.app.setPath('cache', process.cwd() + config.app.cache);
-// // electron.app.setPath('downloads', process.cwd() + config.app.downloads);
-// // electron.app.setPath('userData', process.cwd() + config.app.userData);
-// // electron.app.setPath('logs', process.cwd() + config.app.logs);
-// // electron.app.setPath('recent', process.cwd() + config.app.recent);
+// // electron.app.setPath('temp', process.cwd() + applicationConfiguration.temp);
+// // electron.app.setPath('cache', process.cwd() + applicationConfiguration.cache);
+// // electron.app.setPath('downloads', process.cwd() + applicationConfiguration.downloads);
+// // electron.app.setPath('userData', process.cwd() + applicationConfiguration.userData);
+// // electron.app.setPath('logs', process.cwd() + applicationConfiguration.logs);
+// // electron.app.setPath('recent', process.cwd() + applicationConfiguration.recent);
 
-electron.app.setPath('temp', path.join(dirname, config.app.temp));
-electron.app.setPath('cache', path.join(dirname, config.app.cache));
-electron.app.setPath('downloads', path.join(dirname, config.app.downloads));
-electron.app.setPath('userData', path.join(dirname, config.app.userData));
-electron.app.setPath('logs', path.join(dirname, config.app.logs));
-electron.app.setPath('recent', path.join(dirname, config.app.recent));
-
-// // Failed to set path error
-// // electron.app.setPath('crashDump', config.app.crashDump)
-// // electron.app.setPath('appData', process.cwd() + config.app.appData);
+electron.app.setPath('temp', path.join(dirname, applicationConfiguration.temp));
+electron.app.setPath('cache', path.join(dirname, applicationConfiguration.cache));
+electron.app.setPath('downloads', path.join(dirname, applicationConfiguration.downloads));
+electron.app.setPath('userData', path.join(dirname, applicationConfiguration.userData));
+electron.app.setPath('logs', path.join(dirname, applicationConfiguration.logs));
+electron.app.setPath('recent', path.join(dirname, applicationConfiguration.recent));
 
 // // Failed to set path error
-// // electron.app.setPath('crashDump', path.join(dirname, config.app.crashDump))
-electron.app.setPath('appData', path.join(dirname, config.app.appData));
+// // electron.app.setPath('crashDump', applicationConfiguration.crashDump)
+// // electron.app.setPath('appData', process.cwd() + applicationConfiguration.appData);
+
+// // Failed to set path error
+// // electron.app.setPath('crashDump', path.join(dirname, applicationConfiguration.crashDump))
+electron.app.setPath('appData', path.join(dirname, applicationConfiguration.appData));
 
 // // 
 // // Alternatively, use following AppData path based on OS
@@ -210,7 +211,7 @@ electron.app.whenReady().then(function () {
     createWindow(dirname, config, options);
 
     electron.app.on('activate', () => {
-        console.log("Desktop-CGI-Server: index.js: activate Event invoked #009");
+        console.log("Desktop-CGI-Server: index.js: app.activate Event invoked #009");
         if (win === null) {
             if (electron.BrowserWindow.getAllWindows().length === 0) createWindow();
         }
@@ -218,7 +219,7 @@ electron.app.whenReady().then(function () {
 }.bind(null, config, options));
 
 electron.app.on('window-all-closed', () => {
-    console.log("Desktop-CGI-Server: index.js: window-all-closed Event invoked #010");
+    console.log("Desktop-CGI-Server: index.js: app.window-all-closed Event invoked #010");
     if (process.platform !== 'darwin') {
         electron.app.quit();
         electron.apps = {};

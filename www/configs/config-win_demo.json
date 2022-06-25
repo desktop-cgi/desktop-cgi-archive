@@ -33,6 +33,7 @@
         "ignoreCertificateErrors": false,
         "disableHardwareAcceleration": false,
         "allowInsecureLocalhost": false,
+        "appRoot": "",
         "options": {
             "viewengine": "ejs",
             "views": "/www/demoapp/node-templates",
