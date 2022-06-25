@@ -93,7 +93,7 @@ async function createWindow(dirname, config, options) {
     // win.loadFile('C:/Users/ganes/Documents/projects/github/workspace-cgi/packages/desktop-cgi/www/demoapp/html/index.html');
     win.loadURL('http://localhost:3001');
     if (menus === "default") {
-        require("./src/native/menu");
+        require("./src/native/electron_menu");
     } else {
         require(menus);
     }
