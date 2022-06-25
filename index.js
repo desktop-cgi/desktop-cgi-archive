@@ -83,8 +83,10 @@ async function createWindow(dirname, config, options) {
     let result = await require("./src/index")(dirname, config, options);
 
     const win = new electron.BrowserWindow({
-        width: 800,
-        height: 600,
+        width: width,
+        height: height,
+        backgroundColor: '#FFF',
+        show: false,
         webPreferences: {
             preload: path.join(dirname, 'preload.js')
         }

@@ -25,7 +25,7 @@
         "config_folder": "/www/configs",
         "framework": "electron",
         "frameworkBridge": "express",
-        "menus": "/src/native/menu",
+        "menus": "/src/native/electron_menu",
         "options": {
             "viewengine": "ejs",
             "views": "/www/demoapp/node-templates",
