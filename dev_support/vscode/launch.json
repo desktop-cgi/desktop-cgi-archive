@@ -1,0 +1,20 @@
+{
+    "description_config_file": "vscode_debug_config_launch.json",
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "desktopcgi",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "electron"
+            ],
+            "cwd": "${workspaceRoot}\\github\\desktop-cgi\\"
+        }
+    ]
+}

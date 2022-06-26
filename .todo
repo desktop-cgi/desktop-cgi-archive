@@ -121,6 +121,7 @@ TODO - DESKTOP-CGI
                 - https://docs.docker.com/get-started/part2/
             - [] for Electron Build
                 - https://hub.docker.com/r/electronuserland/builder
+            - https://github.com/dockersamples/node-bulletin-board [sample]
 
 - Community and Adoption
     - Community
