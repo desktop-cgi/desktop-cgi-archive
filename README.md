@@ -132,9 +132,7 @@ Check file - [.todo](./.todo)
 
 # References
 
-##### Other Packing Solutions you can use
-
-- References: [Electron Application Distribution](https://www.electronjs.org/docs/tutorial/application-distribution)
+[Electron Application Distribution](https://www.electronjs.org/docs/tutorial/application-distribution)
 
 
 # License

@@ -1,0 +1,12 @@
+//
+// VSCODE DEBUG CONFIGURATION
+// 
+// VSCode launch.json configuration for debugging
+// Add the whole object named desktopcgi into your launch.json of vscode
+// Change the Object's cwd key to your own projects relative path from VSCode WorkspaceRoot
+//      The current cwd for me is .vscode{workspacefolderopenedhere}\\github\\desktop-cgi\\
+// 
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387`
+// 
