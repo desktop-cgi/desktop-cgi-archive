@@ -54,6 +54,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 * Perl (Version Independent)
 * PHP (Version Independent)
 * Ruby (Version Independent)
+<!-- * .NET (Version Independent) -->
 <!-- * JSP (Version Independent) -->
 
 
