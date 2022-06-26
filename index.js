@@ -14,11 +14,10 @@ const electron = require('electron');
 const { app, BrowserWindow, ipcMain, remote, screen } = require('electron');
 // let {getCurrentWindow, globalShortcut} = remote;
 const notifier = require('electron-notifications');
-const ut = require("./src/utils");
+const ut = require("./src/modules_utilities/utils");
 let { Tray, notes, displayNoteToTray, addNoteToTrayMenu } = require("./src/native/electron_tray");
 
 let Menu = electron.Menu;
-
 let trayIcon = null;
 let menus = "default";
 let config_folder = "/www/configs";
@@ -180,7 +179,7 @@ async function createWindow(dirname, config, options) {
 
         try {
             trayIcon = new Tray(path.join(dirname, applicationConfiguration.trayIcon))
-        } catch(e) {
+        } catch (e) {
             console.log("Desktop-CGI-Server: index.js: Error in tray icon #007 ", e.toString())
         };
         let contextMenu = Menu.buildFromTemplate(notes.map(addNoteToTrayMenu));
