@@ -124,11 +124,17 @@ TODO - DESKTOP-CGI
 
 - Community and Adoption
     - Community
-        - [] Discord, Stackoverflow, Twitter, Github. Consider other modes of communication (Choose Moderated Official social community) [TODO]
+        - [] Consider modes of communication (Choose Moderated Official social community) [TODO]
+            - [] Discord [TODO]
+            - [] Stackoverflow [TODO]
+            - [] Twitter [TODO]
+            - [*] Github  [Done]
+            - [*] Quora  [Done]
+            - [*] Facebook  [Done]
         - [] Wiki (Basic links to main docs site - https://desktop-cgi.github.io) [TODO]
-                - [] Set App Paths customization to docs
-                    - https://www.electronjs.org/docs/all#appsetpathname-path
-        - []  
+            - [] Set App Paths customization to docs
+                - https://www.electronjs.org/docs/all#appsetpathname-path
+        - [] 
     - Contributors and Developers
         - [*] Issue Templates [Done]
         - [] Project Planning (Preferably open) [TODO]
