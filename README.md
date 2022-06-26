@@ -84,8 +84,9 @@ The script can proxy to any File, most embeddable web servers, and/ or Proxy-abl
     - Nodejs: (> 8.x)
 
 * Application Dependencies:
-    - cgi-js: (>=1.0.0)
+    - cgi-js: (>=1.1.0)
     - electron": (>=18.1.0)
+    - relevant compiling packages
 
 * Application Demo Dependencies:
     - body-parser: (>=1.20.0)
