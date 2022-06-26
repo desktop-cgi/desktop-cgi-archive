@@ -178,7 +178,11 @@ async function createWindow(dirname, config, options) {
 
     if (!!applicationConfiguration.tray && !!applicationConfiguration.trayIcon) {
 
-        trayIcon = new Tray(applicationConfiguration.trayIcon).catch(function (e) { console.log("Desktop-CGI-Server: index.js: Error in tray icon #007 ", e.toString()) });
+        try {
+            trayIcon = new Tray(path.join(dirname, applicationConfiguration.trayIcon))
+        } catch(e) {
+            console.log("Desktop-CGI-Server: index.js: Error in tray icon #007 ", e.toString())
+        };
         let contextMenu = Menu.buildFromTemplate(notes.map(addNoteToTrayMenu));
         trayIcon.setToolTip(!!applicationConfiguration.trayTooltip ? applicationConfiguration.trayTooltip : "DesktopCGI Application");
         trayIcon.setContextMenu(contextMenu);

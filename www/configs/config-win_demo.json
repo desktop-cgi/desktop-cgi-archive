@@ -35,7 +35,7 @@
         "allowInsecureLocalhost": false,
         "appRoot": "",
         "tray": true,
-        "trayIcon": "icon@2x.png",
+        "trayIcon": "/src/assets/electron.svg",
         "trayTooltip": "DesktopCGI app",
         "options": {
             "viewengine": "ejs",
