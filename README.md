@@ -5,7 +5,7 @@ Desktop-CGI is a desktop executable app that can be created from any CGI files o
 `[Funding Invited]`
 
 
-![Desktop CGI](./desktop-cgi.jpeg)
+![Desktop CGI](./dev_support/assets/desktop-cgi.jpeg)
 
 
 # Highlights
@@ -20,7 +20,7 @@ Desktop-CGI runs an Electron - Node - Express based application under the hood a
 # Usage
 
 * Install node.js from [https://www.nodejs.com](https://www.nodejs.com)
-* Clone the [Git repository](https://github.com/ganeshkbhat/desktop-cgi) (Alternatively, download the git repository)
+* Clone the [Git repository](https://github.com/desktop-cgi/desktop-cgi) (Alternatively, download the git repository)
 * Change to the git repository directory / folder `cd path/to/desktop-cgi` from command line / shell / powershell
 * Run command `npm install`
 * Add your application in the respective `www` folder or sub-folder [TODO - Simplify]
@@ -127,7 +127,7 @@ You can track development status here [desktop-cgi/projects](https://github.com/
 
 # Todo
 
-Check file - [.todo](./.todo)
+Check file - [.todo](./dev_support/todo/.todo)
 
 
 # References
