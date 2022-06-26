@@ -6,7 +6,7 @@ const path = require("path");
 const url = require("url");
 let cUtils = cgijs.utils();
 
-module.exports = (dirname,  configurations, options) => {
+module.exports = (dirname,  configurations, options, data={}) => {
     let pr = new Promise(function (resolve, reject) {
         console.log("DesktopCGI-Express Bridge: recursive-cgifiles.js: Starting CGI Files ");
         try {

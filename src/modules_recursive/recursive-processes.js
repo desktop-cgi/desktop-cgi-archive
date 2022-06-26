@@ -9,7 +9,7 @@ let cUtils = cgijs.utils();
 // https://www.npmjs.com/package/http-proxy
 
 
-module.exports = (dirname, configurations, options) => {
+module.exports = (dirname, configurations, options, data={}) => {
     let pr = new Promise(function (resolve, reject) {
         console.log("DesktopCGI-Express Bridge: recursive-processes.js: Starting Processes ");
         try {

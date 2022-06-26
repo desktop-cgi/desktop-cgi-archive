@@ -4,7 +4,10 @@ TODO - DESKTOP-CGI
     - [] MVP - Create a packageable application [TODO]
     - [] MVP - Create a installable application [TODO]
     - [] Automate installation executable creation for all OS [TODO]
-        - [] Allowance of path definition for binary folder selection for automation [TODO]
+        - [] Allowance of path definition for binary folder selection [TODO]
+        - [] Automate Packager with scripts .bat and .sh
+            - https://www.electronjs.org/docs/tutorial/application-distribution
+            - https://github.com/electron-userland/electron-builder
     - [] 
 
 - TODO
@@ -30,47 +33,112 @@ TODO - DESKTOP-CGI
     - [] Protocols Support
             - [] http [TODO]
             - [] https [TODO]
+            - [] websocket [TODO]
             - [] tcp [TODO]
             - [] udp [TODO]
-            - [] websocket [TODO]
+            - [] sockets [TODO]
             - [] gRPC [TODO]
             - [] ftp [TODO]
-            - [] sockets [TODO]
             - [] ssh [TODO]
             - [] Architecture Pattern change (Message/ Event Pattern support in proxy module which is currently not differentiated) [TODO]
+    - [] Standard Binaries Management config json's. [TODO]
+            - [] PHP [TODO]
+            - [] Ruby [TODO]
+            - [] Python [TODO]
+            - [] Perl [TODO]
+            - [] Java [TODO]
+            - [] Node [TODO]
+            - [] Typescript [TODO]
+            - [] Deno [TODO]
+            - [] Dask [TODO]
+            - [] HTTPD [TODO]
+            - [] Nginx [TODO]
+            - [] Mongoose [TODO]
+            - [] Tomcat [TODO]
+            - [] Jetty [TODO]
+            - [] Putty [TODO]
+            - [] MySQL [TODO]
+            - [] Redis [TODO]
+            - [] MongoDB [TODO]
+            - [] Sqlite [TODO]
+            - [] PgSQL [TODO]
+            - [] CouchDB [TODO]
+            - [] Oracle [TODO]
+            - [] Git [TODO]
+    - [] Automation of Binaries and specific Version Download. Selection of distros to be done [TODO]
+            - [] PHP [TODO]
+            - [] Ruby [TODO]
+            - [] Python [TODO]
+            - [] Perl [TODO]
+            - [] Java [TODO]
+            - [] Node [TODO]
+            - [] Typescript [TODO]
+            - [] Deno [TODO]
+            - [] Dask [TODO]
+            - [] HTTPD [TODO]
+            - [] Nginx [TODO]
+            - [] Mongoose [TODO]
+            - [] Tomcat [TODO]
+            - [] Jetty [TODO]
+            - [] Putty [TODO]
+            - [] MySQL [TODO]
+            - [] Redis [TODO]
+            - [] MongoDB [TODO]
+            - [] Sqlite [TODO]
+            - [] PgSQL [TODO]
+            - [] CouchDB [TODO]
+            - [] Oracle [TODO]
+            - [] Git [TODO]
+        - [] Testing web frameworks (for commercial use) to be done [TODO]
+            - [] PHP [TODO]
+                - []
+            - [] Ruby [TODO]
+                - []
+            - [] Python [TODO]
+                - []
+            - [] Perl [TODO]
+                - []
+            - [] Java [TODO]
+                - []
+            - [] Node [TODO]
+                - []
+            - [] Typescript [TODO]
+                - []
+            - [] Deno [TODO]
+                - []
+            - [] Dask [TODO]
+                - []
     - [] Automation of Installable executable for Win, Linux, Mac. Selection of distros to be done [TODO]
-    - [] Manage Processes UI [TODO]
-    - [] Manage Monitoring UI [TODO]
     - [] Easy support for different frameworks using middlewares for file
     - [] Easy support for different frameworks using middlewares for proxy
-    - [] 
+    - [] Easy support for different frameworks using middlewares for processes
+    - [] Manage Processes UI [TODO]
+    - [] Manage Monitoring UI [TODO]
+    - [] Add vagrant support (Adding vagrantfile) for manual development/ contributions/ personal changes
+            - https://learn.hashicorp.com/collections/vagrant/getting-started
+    - [] Add Docker based build support (Adding dockerfile)
+            - [] for app structure (www, data, download, tmp, config.json)
+                - https://docs.docker.com/get-started/part2/
+            - [] for Electron Build
+                - https://hub.docker.com/r/electronuserland/builder
 
 - Community and Adoption
     - Community
         - [] Discord, Stackoverflow, Twitter, Github. Consider other modes of communication (Choose Moderated Official social community) [TODO]
         - [] Wiki (Basic links to main docs site - https://desktop-cgi.github.io) [TODO]
+                - [] Set App Paths customization to docs
+                    - https://www.electronjs.org/docs/all#appsetpathname-path
         - []  
     - Contributors and Developers
-        - [] Issue Templates [TODO]
+        - [*] Issue Templates [Done]
         - [] Project Planning (Preferably open) [TODO]
             - [] Feature planning, addition, feedback, and management [TODO]
         - [] 
     - Adoption
-        - []
+        - [] 
 
 
 - Add Webcontent loading to electronjs
     - https://www.electronjs.org/docs/api/web-contents
 - Add Deda service manager to UI project (https://github.com/DEDAjs/deda-service-manager.git) This is temporary.
-- Automate Packager with scripts .bat and .sh
-    - https://www.electronjs.org/docs/tutorial/application-distribution
-    - https://github.com/electron-userland/electron-builder
-- Add Docker based build support (Adding dockerfile)
-    - for app structure (www, data, download, tmp, config.json)
-    - https://docs.docker.com/get-started/part2/
-- Add vagrant support (Adding vagrantfile)
-    - https://learn.hashicorp.com/collections/vagrant/getting-started
-- Set App Paths customization to docs
-    - https://www.electronjs.org/docs/all#appsetpathname-path
-- Docker for Electron Build
-    - https://hub.docker.com/r/electronuserland/builder
+
