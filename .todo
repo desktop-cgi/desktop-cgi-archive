@@ -143,8 +143,8 @@ TODO - DESKTOP-CGI
     - Adoption
         - [] 
 
-
-- Add Webcontent loading to electronjs
-    - https://www.electronjs.org/docs/api/web-contents
-- Add Deda service manager to UI project (https://github.com/DEDAjs/deda-service-manager.git) This is temporary.
+- Considerations of features
+    - [] Add Webcontent loading to electronjs
+        - https://www.electronjs.org/docs/api/web-contents
+    - [] Add Deda service manager to UI project (https://github.com/DEDAjs/deda-service-manager.git) This is temporary.
 
