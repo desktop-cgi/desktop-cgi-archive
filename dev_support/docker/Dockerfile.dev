@@ -1,0 +1,69 @@
+
+# https://www.electron.build/multi-platform-build.html
+# https://hub.docker.com/r/electronuserland/builder
+
+FROM debian:11.3
+ENV OS_ARCH="amd64" \
+    OS_FLAVOUR="debian-11" \
+    OS_NAME="linux"
+
+# # https://github.com/bitnami/bitnami-docker-git/blob/2.36.1-debian-11-r9/2/debian-11/Dockerfile
+# COPY prebuildfs /
+# SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install required system packages and dependencies
+RUN apt install acl apt-transport-https dirmngr gnupg ca-certificates curl gzip 
+RUN apt-get install libbrotli1 libc6 libcom-err2 libcurl4 libffi7 libgcrypt20 libgmp10 libgnutls30 libgpg-error0 
+RUN apt-get install libgssapi-krb5-2 libhogweed6 libidn2-0 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 
+RUN apt-get install libnettle8 libnghttp2-14 libp11-kit0 libpsl5 librtmp1 libsasl2-2 libssh2-1 
+RUN apt-get install libssl1.1 libtasn1-6 libunistring2 procps ssh sudo tar zlib1g
+RUN apt-get install build-essential
+RUN apt-get -y install git
+
+# # Update and Upgrade
+# RUN apt-get update && apt-get upgrade -y && \
+#     rm -r /var/lib/apt/lists /var/cache/apt/archives
+RUN sudo apt update
+
+# Install Git
+# RUN apt-get -y install git
+
+# Install Nodejs
+RUN sudo curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN sudo apt-get install -y nodejs
+# RUN apt-get install build-essential
+
+# Installing Electron Dependencies for Build
+RUN sudo apt-get install --no-install-recommends -y libopenjp2-tools
+RUN sudo apt-get install --no-install-recommends -y rpm
+RUN sudo apt-get install --no-install-recommends -y bsdtar
+RUN sudo snap install snapcraft --classic
+RUN sudo snap install multipass --beta --classic
+RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
+
+# Install Wine
+# https://wiki.winehq.org/Download#binary
+# https://wiki.winehq.org/Debian
+RUN sudo dpkg --add-architecture i386
+RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
+RUN sudo mv winehq.key /usr/share/keyrings/winehq-archive.key
+RUN wget -nc https://dl.winehq.org/wine-builds/debian/dists/buster/winehq-buster.sources
+RUN sudo mv winehq-buster.sources /etc/apt/sources.list.d/
+RUN sudo apt update
+RUN sudo apt install --install-recommends winehq-stable
+# # Beginning with Wine 5.7, the WineHQ Debian packages have an optional debconf setting to enable CAP_NET_RAW to allow applications that need to send and receive raw IP packets to do so. 
+# # This is disabled by default because it carries a potential security risk, and the vast majority of applications do not need that capability. 
+# # Users of applications that do need it can enable CAP_NET_RAW after installing Wine by running
+# # dpkg-reconfigure wine-<branch>-amd64 wine-<branch> wine-<branch>-i386
+#
+# dpkg-reconfigure wine-stable-amd64 wine-stable wine-stable-i386
+
+# Install Mono
+# https://www.mono-project.com/download/stable/
+# https://www.mono-project.com/download/stable/#download-lin-debian
+# RUN sudo apt install apt-transport-https dirmngr gnupg ca-certificates
+RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+RUN echo "deb https://download.mono-project.com/repo/debian stable-buster main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+RUN sudo apt update
+RUN sudo apt install mono-devel
+

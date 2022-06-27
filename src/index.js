@@ -3,7 +3,7 @@
 const path = require("path");
 
 module.exports = (dirname, configurations, options) => {
-    let pr = new Promise(function (resolve, reject) {
+    let pr = new Promise(async function (resolve, reject) {
         try {
             // Load The FS Module & The Config File
             var express = require('express');
@@ -13,15 +13,15 @@ module.exports = (dirname, configurations, options) => {
 
             const cgifiles = require("./modules_recursive/recursive-cgifiles");
             const proxies = require("./modules_recursive/recursive-proxies");
-            // const processes = require("./modules_recursive/recursive-processes");
-            let stores = {}
+            const processes = require("./modules_recursive/recursive-processes");
+            let stores = {};
 
-            // processes(dirname, configurations, options).then(function (procs) {
+            processes(dirname, configurations, options).then(function (procs) {
 
-            //     console.log("DesktopCGI-Express Bridge: index.js: Started Processes ");
-            //     console.log("DesktopCGI-Express Bridge: index.js: Starting Proxies");
+                console.log("DesktopCGI-Express Bridge: index.js: Started Processes ");
+                console.log("DesktopCGI-Express Bridge: index.js: Starting Proxies");
 
-            //     stores["processes"] = procs;
+                stores["processes"] = procs;
 
                 proxies(dirname, configurations, options).then(function (proxyapp) {
 
@@ -89,11 +89,11 @@ module.exports = (dirname, configurations, options) => {
                     reject(error);
                 });
 
-            // }).catch(function (e) {
-            //     // throw new Error(e.toString());
-            //     console.log("Desktop-CGI-Express Bridge: index.js: ", e.toString());
-            //     reject(e);
-            // });
+            }).catch(function (e) {
+                // throw new Error(e.toString());
+                console.log("Desktop-CGI-Express Bridge: index.js: ", e.toString());
+                reject(e);
+            });
 
         } catch (e) {
             // throw new Error(e.toString());

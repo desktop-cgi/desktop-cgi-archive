@@ -33,7 +33,7 @@ function base(config, starthandler, closehandler, exithandler) {
 
     if (!!setter) {
         starthandler = (!starthandler) ? function (error, stdout, stderr) { console.log(stdout); } : starthandler;
-        closehandler = (!closehandler) ? function (options, proc) { setTimeout(function() { process.exit(0); }); } : closehandler;
+        closehandler = (!closehandler) ? function (options, proc) { setTimeout(function() { /* process.exit(0); */ }); } : closehandler;
         exithandler = (!exithandler) ? function (exitcode, anydata) { /* process.exit(0); */ } : exithandler;
 
         let proc = obj.process.executeAction(conf.name, startcommand, starthandler, closehandler);

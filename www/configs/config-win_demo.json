@@ -36,7 +36,7 @@
         "appRoot": "",
         "tray": true,
         "trayIcon": "/www/demoapp/assets/electron.svg",
-        "trayTooltip": "DesktopCGI app",
+        "trayTooltip": "DesktopCGI",
         "options": {
             "viewengine": "ejs",
             "views": "/www/demoapp/node-templates",

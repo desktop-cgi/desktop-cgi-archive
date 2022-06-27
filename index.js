@@ -11,10 +11,10 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const electron = require('electron');
-const { app, BrowserWindow, ipcMain, remote, screen } = require('electron');
+const { app, BrowserWindow, ipcMain, remote, screen, Notification } = require('electron');
 // let {getCurrentWindow, globalShortcut} = remote;
 const notifier = require('electron-notifications');
-const ut = require("./src/modules_utilities/utils");
+const ut = require("./src/modules_utilities/encryption");
 let { Tray, notes, displayNoteToTray, addNoteToTrayMenu } = require("./src/native/electron_tray");
 
 let Menu = electron.Menu;
@@ -96,6 +96,12 @@ if (!!applicationConfiguration.appRoot && applicationConfiguration.appRoot !== "
     global.appRoot = applicationConfiguration.appRoot;
 }
 
+function showNotification(title, body) {
+    new Notification({ title: title, body: body }).show();
+}
+
+// const gotTheLock = electron.app.requestSingleInstanceLock();
+
 /**
  *
  * createWindow
@@ -117,7 +123,7 @@ async function createWindow(dirname, config, options) {
     // let frameworkObject = require((!!frameworkDefinition) ? frameworkDefinition : "electron");
     menus = (!!applicationConfiguration.menus) ? path.join(dirname, applicationConfiguration.menus) : menus;
 
-    console.log("Desktop-CGI-Server: index.js: Desktop-CGI App started: #003");
+    console.log("Desktop-CGI-Server: index.js: Desktop-CGI App started: #002");
 
     // 
     // The following has been commented for use with independent npm package
@@ -128,7 +134,7 @@ async function createWindow(dirname, config, options) {
 
     const win = new electron.BrowserWindow({
         // fullscreen: true,
-        fullscreenable: false,
+        // fullscreenable: false,
         // fullscreenWindowTitle: false,
         // useContentSize: true,
         width: width,
@@ -136,6 +142,8 @@ async function createWindow(dirname, config, options) {
         backgroundColor: '#FFF',
         show: false,
         webPreferences: {
+            // https://www.electronjs.org/docs/latest/tutorial/multithreading
+            // nodeIntegrationInWorker: true,
             preload: path.join(dirname, 'preload.js')
         }
     });
@@ -143,13 +151,17 @@ async function createWindow(dirname, config, options) {
     // // Loader decides whether a file is loaded using loadFile or a server is loaded using loadURL
     // // Options: file, server
     if (config.server.loader === "file") {
-        // win.loadFile('C:/Users/ganes/Documents/projects/github/workspace-cgi/packages/desktop-cgi/www/demoapp/html/index.html');
+        console.log("Desktop-CGI-Server: index.js: Desktop-CGI App loading file: #003");
+        win.loadFile(path.join(dirname, config.server.file));
     } else if (config.server.loader === "server") {
+        console.log("Desktop-CGI-Server: index.js: Desktop-CGI App loading server at protocol:host:port: #004 ", config.server.protocol, config.server.host, config.server.port);
         win.loadURL('http://' + config.server.host + ':' + config.server.port);
     } else {
+        console.log("Desktop-CGI-Server: index.js: Desktop-CGI App loading server at protocol:host:port: #005 ", config.server.protocol, config.server.host, config.server.port);
         win.loadURL('http://' + config.server.host + ':' + config.server.port);
     }
 
+    console.log("Desktop-CGI-Server: index.js: Desktop-CGI App Menus loading : #006");
     if (menus === "default") {
         Menu = require("./src/native/electron_menu");
     } else {
@@ -157,18 +169,18 @@ async function createWindow(dirname, config, options) {
     }
 
     win.on('closed', function (win) {
-        console.log("Desktop-CGI-Server: index.js: browserWindow.closed Event invoked #004");
+        console.log("Desktop-CGI-Server: index.js: browserWindow.closed Event invoked #007");
         win = null;
         electron.apps = {};
     }.bind(null, electron));
 
     win.once('ready-to-show', () => {
-        console.log("Desktop-CGI-Server: index.js: browserWindow.ready-to-show Event invoked #005");
+        console.log("Desktop-CGI-Server: index.js: browserWindow.ready-to-show Event invoked #008");
         win.show();
     });
 
     win.webContents.on("did-fail-load", function () {
-        console.log("Desktop-CGI-Server: index.js: browserWindow.webContents.did-fail-load Event invoked #006");
+        console.log("Desktop-CGI-Server: index.js: browserWindow.webContents.did-fail-load Event invoked #009");
         win.loadURL('http://localhost:' + config.server.port + "/err");
     }.bind(win));
 
@@ -176,24 +188,25 @@ async function createWindow(dirname, config, options) {
     // https://www.electronjs.org/docs/api/web-contents
 
     if (!!applicationConfiguration.tray && !!applicationConfiguration.trayIcon) {
-
+        let contextMenu
         try {
-            trayIcon = new Tray(path.join(dirname, applicationConfiguration.trayIcon))
+            trayIcon = new Tray(path.join(dirname, applicationConfiguration.trayIcon));
+            contextMenu = Menu.buildFromTemplate(notes.map(addNoteToTrayMenu));
         } catch (e) {
-            console.log("Desktop-CGI-Server: index.js: Error in tray icon #007 ", e.toString())
+            console.log("Desktop-CGI-Server: index.js: Error in tray icon #010 ", e.toString())
         };
-        let contextMenu = Menu.buildFromTemplate(notes.map(addNoteToTrayMenu));
         trayIcon.setToolTip(!!applicationConfiguration.trayTooltip ? applicationConfiguration.trayTooltip : "DesktopCGI Application");
         trayIcon.setContextMenu(contextMenu);
     }
 
     win.webContents.on('dom-ready', () => {
+        console.log("Desktop-CGI-Server: index.js: app.webContents.dom-ready Event invoked #011");
         displayNoteToTray(notes[0], win);
     });
 
 }
 
-console.log("Desktop-CGI-Server: index.js: setting app paths #008");
+console.log("Desktop-CGI-Server: index.js: setting app paths #012");
 
 // // electron.app.setPath('temp', process.cwd() + applicationConfiguration.temp);
 // // electron.app.setPath('cache', process.cwd() + applicationConfiguration.cache);
@@ -221,7 +234,7 @@ electron.app.setPath('appData', path.join(dirname, applicationConfiguration.appD
 // // Alternatively, use following AppData path based on OS
 // // aix, darwin, freebsd, linux, openbsd, sunos, win32
 // // 
-// // os.type
+// // os.type 
 // //   "Darwin" for MacOS, "Linux" for Linux and "Windows_NT" for windows
 // // os.arch
 // //   "x32", "x64", "arm", "arm64", "s390", "s390x", "mipsel", "ia32", "mips", "ppc" and "ppc64".
@@ -238,11 +251,11 @@ electron.app.setPath('appData', path.join(dirname, applicationConfiguration.appD
 // // 
 
 electron.app.whenReady().then(function () {
-    console.log("Desktop-CGI-Server: index.js: app.whenReady Event invoked #009");
+    console.log("Desktop-CGI-Server: index.js: app.whenReady Event invoked #013");
     createWindow(dirname, config, options);
 
     electron.app.on('activate', () => {
-        console.log("Desktop-CGI-Server: index.js: app.activate Event invoked #010");
+        console.log("Desktop-CGI-Server: index.js: app.activate Event invoked #014");
         if (win === null) {
             if (electron.BrowserWindow.getAllWindows().length === 0) createWindow();
         }
@@ -250,7 +263,7 @@ electron.app.whenReady().then(function () {
 }.bind(null, config, options));
 
 electron.app.on('window-all-closed', () => {
-    console.log("Desktop-CGI-Server: index.js: app.window-all-closed Event invoked #011");
+    console.log("Desktop-CGI-Server: index.js: app.window-all-closed Event invoked #015");
     if (process.platform !== 'darwin') {
         electron.app.quit();
         electron.apps = {};

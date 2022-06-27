@@ -122,6 +122,8 @@ TODO - DESKTOP-CGI
             - [] for Electron Build
                 - https://hub.docker.com/r/electronuserland/builder
             - https://github.com/dockersamples/node-bulletin-board [sample]
+    - [] Consider Dependency Injection for Electron-ExpressJS Module - https://www.npmjs.com/package/injection-js
+            - 
 
 - Community and Adoption
     - Community

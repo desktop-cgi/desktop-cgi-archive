@@ -1,0 +1,2 @@
+
+const { Menu } = require('electron');
