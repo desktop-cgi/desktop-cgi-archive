@@ -10,7 +10,7 @@
   "scripts": {
     "setup-dev": "",
     "setup-expressbridge": "cd ./server/express-bridge && npm install && npm link",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter spec --recursive --config ./mocha.test.config.js",
     "electron": "electron --trace-warnings .",
     "electronbuild": "echo \"TODO: Sponsor this project\""
   },
