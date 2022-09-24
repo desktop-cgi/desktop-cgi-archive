@@ -12,6 +12,22 @@
     "asar": true,
     "beforePack": "",
     "afterPack": "",
+    "files": [
+      "index.js",
+      "src/*",
+      "src/**/*",
+      "binaries/**/*",
+      "binaries/**/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "extraFiles": [
+      "credentials"
+    ],
+    "publish": null,
     "linux": {
       "target": [
         {
