@@ -101,6 +101,19 @@
           ]
         },
         {
+          "target": "snap",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
           "target": "tar.xz",
           "arch": [
             "x64",
