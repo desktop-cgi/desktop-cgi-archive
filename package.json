@@ -15,6 +15,19 @@
     "linux": {
       "target": [
         {
+          "target": "dir",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
           "target": "deb",
           "arch": [
             "x64",
@@ -115,7 +128,6 @@
     "win": {
       "target": [
         {
-<<<<<<< HEAD
           "target": "dir",
           "arch": [
             "x64",
@@ -129,8 +141,6 @@
           ]
         },
         {
-=======
->>>>>>> 62bb5ffdb1bfa0ef8ad9786dcd93ffbbd02a295e
           "target": "nsis",
           "arch": [
             "x64",
@@ -239,7 +249,6 @@
     "mac": {
       "target": [
         {
-<<<<<<< HEAD
           "target": "dir",
           "arch": [
             "x64",
@@ -253,8 +262,6 @@
           ]
         },
         {
-=======
->>>>>>> 62bb5ffdb1bfa0ef8ad9786dcd93ffbbd02a295e
           "target": "dmg",
           "arch": [
             "x64",
