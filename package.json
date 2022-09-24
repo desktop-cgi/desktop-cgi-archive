@@ -7,6 +7,289 @@
   "directories": {
     "test": "test"
   },
+  "build": {
+    "appId": "com.example.${name}",
+    "asar": true,
+    "beforePack": "",
+    "afterPack": "",
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ],
+          "depends": [
+            "libnotify4",
+            "libxtst6",
+            "libnss3"
+          ]
+        },
+        {
+          "target": "apk",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "appImage",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "snap",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.xz",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "appx",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "nsisWeb",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "squirrel",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.xz",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "pkg",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "mas",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.xz",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
     "setup-dev": "",
     "setup-expressbridge": "cd ./server/express-bridge && npm install && npm link",
@@ -31,6 +314,7 @@
     "@electron-forge/cli": "^6.0.0-beta.63",
     "chai": "4.3.6",
     "electron-builder": "^23.0.3",
+    "electron-builder-squirrel-windows": "^23.5.1",
     "electron-forge": "^5.2.4",
     "electron-installer-debian": "^3.1.0",
     "electron-installer-flatpak": "^0.8.0",
