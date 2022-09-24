@@ -67,4 +67,8 @@ RUN echo "deb https://download.mono-project.com/repo/debian stable-buster main" 
 RUN sudo apt update
 RUN sudo apt install mono-devel
 
-RUN sudo apt-get install snap snapcraft
+RUN sudo apt-get install snap
+RUN sudo snap install snap snapcraft
+
+RUN sudo apt-get install --reinstall systemd
+
