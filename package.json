@@ -7,12 +7,341 @@
   "directories": {
     "test": "test"
   },
+  "build": {
+    "appId": "com.example.${name}",
+    "asar": true,
+    "beforePack": "",
+    "afterPack": "",
+    "linux": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ],
+          "depends": [
+            "libnotify4",
+            "libxtst6",
+            "libnss3"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ],
+          "depends": [
+            "libnotify4",
+            "libxtst6",
+            "libnss3"
+          ]
+        },
+        {
+          "target": "apk",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "appImage",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "snap",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.xz",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "appx",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "nsisWeb",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "squirrel",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.xz",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "pkg",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "mas",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.xz",
+          "arch": [
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64",
+            "x64",
+            "ia32",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
     "setup-dev": "",
     "setup-expressbridge": "cd ./server/express-bridge && npm install && npm link",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter spec --recursive --config ./mocha.test.config.js",
     "electron": "electron --trace-warnings .",
-    "electronbuild": "echo \"TODO: Sponsor this project\""
+    "electronbuilder": "electron-builder build -mwl",
+    "electronbuilder-deps": "electron-builder install-app-deps",
+    "electronbuilder-wincert": "electron-builder create-self-signed-cert"
   },
   "dependencies": {
     "cgijs": "^1.1.0",
@@ -23,7 +352,6 @@
     "electron-notifications": "^1.0.0",
     "electron-unhandled": "^4.0.1",
     "express": "^4.18.1",
-    "injection-js": "^2.4.0",
     "log4js": "^6.5.2",
     "node-ipc": "^11.1.0",
     "winston": "^3.7.2"
@@ -32,6 +360,7 @@
     "@electron-forge/cli": "^6.0.0-beta.63",
     "chai": "4.3.6",
     "electron-builder": "^23.0.3",
+    "electron-builder-squirrel-windows": "^23.5.1",
     "electron-forge": "^5.2.4",
     "electron-installer-debian": "^3.1.0",
     "electron-installer-flatpak": "^0.8.0",
