@@ -331,6 +331,7 @@
   },
   "scripts": {
     "setup-dev": "",
+    "postinstall": "electron-builder install-app-deps",
     "setup-expressbridge": "cd ./server/express-bridge && npm install && npm link",
     "test": "mocha --reporter spec --recursive --config ./mocha.test.config.js",
     "electron": "electron --trace-warnings .",
