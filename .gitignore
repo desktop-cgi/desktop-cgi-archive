@@ -161,3 +161,7 @@ docker-compose.yaml
 
 # quickcheck files
 server/processes/xc.js
+
+release-builds/
+.gitpod.yml
+
