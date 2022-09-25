@@ -78,6 +78,15 @@ npm install --force
 # # Install only if the package.json scripts are not right. It is set up already
 # npm exec --package=@electron-forge/cli -c "electron-forge import"
 
+cp ./setupenv-deb.sh ../setupenv-deb.sh
+cp ./setupenv-deb-all.sh ../setupenv-deb-all.sh
+
+cd ../
+
 chmod +x setupenv-deb.sh
 chmod +x setupenv-deb-all.sh
+
+cd ./desktop-cgi
+
 chmod +x git.rebase.fork.sh
+
