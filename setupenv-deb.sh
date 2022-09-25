@@ -67,6 +67,9 @@ sudo apt update
 
 sudo apt-get install wine 
 
+# sudo apt-get install snap
+# sudo snap install snapcraft --classic
+
 # #
 # # INSTALL DESKTOPCGI GIT REPOSITORY DEPENDENCIES
 # # ----------------------------------------------
