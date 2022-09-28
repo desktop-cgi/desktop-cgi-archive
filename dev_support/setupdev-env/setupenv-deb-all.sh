@@ -56,24 +56,40 @@ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
 sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 
+
 sudo apt-get install dpkg fakeroot
 
+
 sudo apt-get install rpm
+
 
 sudo apt install gnupg ca-certificates
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 sudo apt update
 
-sudo apt-get install wine 
+
+sudo apt-get install wine --fix-missing
+sudo apt-get install wine64 --fix-missing
+sudo apt-get update
+
+sudo apt-get install wine --fix-missing
+sudo apt-get install wine64 --fix-missing
+sudo apt-get update
+
+
+# sudo apt-get install apparmor libfuse2 squashfs-tools udev apparmor-profiles-extra apparmor-utils fuse zenity kdialog apparmor libfuse2 snapd squashfs-tools udev
+# sudo snap install snapcraft --classic
 
 # #
 # # INSTALL DESKTOPCGI GIT REPOSITORY DEPENDENCIES
 # # ----------------------------------------------
 # # 
 
+
 npm install -g prebuild
 npm install --force
+
 
 # # Install only if the package.json scripts are not right. It is set up already
 # npm exec --package=@electron-forge/cli -c "electron-forge import"

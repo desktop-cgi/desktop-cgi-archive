@@ -32,9 +32,11 @@
 # echo -e "#set up Go lang path #\nexport GOPATH=$HOME/go\nexport PATH=$PATH:/usr/local/go/bin:$GOPATH/bin\n" >> ~/.bash_profile
 # source $HOME/.bash_profile
 
+
 # sudo apt update
 # sudo apt-get install default-jre
 # sudo apt-get install default-jdk
+
 
 # sudo apt-get install git-all
 
@@ -56,32 +58,52 @@ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
 sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 
+
 sudo apt-get install dpkg fakeroot
 
+
 sudo apt-get install rpm
+
 
 sudo apt install gnupg ca-certificates
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 sudo apt update
 
-sudo apt-get install wine --fix-missing
-sudo apt-get install wine64 --fix-missing
-sudo apt-get update
 
-# sudo apt-get install snap
+# # # INSTALL WINE32 WINE64
+# sudo apt-get install wine --fix-missing
+# sudo apt-get install wine64 --fix-missing
+# sudo apt-get install wine32 --fix-missing
+# sudo apt-get install wine-stable --fix-missing
+# sudo apt-get update
+
+
+# # INSTALL MONO
+# sudo apt install gnupg ca-certificates
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+# echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+# sudo apt update
+# sudo apt install mono-devel
+
+# sudo apt-get install --reinstall systemd
+
+# sudo apt-get install apparmor libfuse2 squashfs-tools udev apparmor-profiles-extra apparmor-utils fuse zenity kdialog apparmor libfuse2 snapd squashfs-tools udev
 # sudo snap install snapcraft --classic
+
 
 # #
 # # INSTALL DESKTOPCGI GIT REPOSITORY DEPENDENCIES
 # # ----------------------------------------------
 # # 
 
+
 npm install -g prebuild
 npm install --force
 
 # # Install only if the package.json scripts are not right. It is set up already
 # npm exec --package=@electron-forge/cli -c "electron-forge import"
+
 
 cp ./setupenv-deb.sh ../setupenv-deb.sh
 cp ./setupenv-deb-all.sh ../setupenv-deb-all.sh
