@@ -1,3 +1,7 @@
 [submodule "binaries"]
 	path = binaries
+<<<<<<< HEAD
 	url = https://github.com/desktop-cgi/binaries.git
+=======
+	url = https://github.com/desktop-cgi/binaries
+>>>>>>> origin
